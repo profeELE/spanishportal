@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish Portal — Learn Real Spanish</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --teal:#3BBFBF; --teal-dark:#2a9d9d; --teal-light:#e8f9f9;
+  --coral:#E8524A; --coral-light:#fdf0ef;
+  --yellow:#F5C842; --yellow-light:#fffbe6;
+  --text:#1a1a2e; --text-mid:#4a4a6a; --muted:#8888aa;
+  --bg:#f8f9fc; --white:#ffffff; --border:rgba(0,0,0,0.07);
+  --shadow-sm:0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md:0 8px 32px rgba(0,0,0,0.1);
+  --shadow-lg:0 20px 60px rgba(0,0,0,0.12);
+  --radius:20px; --radius-sm:12px;
+}
+html { scroll-behavior:smooth; }
+body { font-family:'Nunito',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
+h1,h2,h3 { font-family:'Fraunces',serif; line-height:1.15; }
+
+/* ── PAGE SWITCH ── */
+.page { display:none; }
+.page.active { display:block; }
+
+/* ══════════════════════════════════
+   PUBLIC SITE
+══════════════════════════════════ */
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(255,255,255,0.92); backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem; height:68px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { display:flex; align-items:center; gap:0.7rem; text-decoration:none; }
+.nav-logo-mark { width:38px; height:38px; background:var(--teal); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+.nav-logo-text { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; color:var(--text); }
+.nav-logo-text span { color:var(--teal); }
+.nav-links { display:flex; align-items:center; gap:0.3rem; }
+.nav-links a { text-decoration:none; color:var(--text-mid); font-size:0.9rem; font-weight:600; padding:0.5rem 0.9rem; border-radius:8px; transition:all 0.15s; }
+.nav-links a:hover { background:var(--teal-light); color:var(--teal-dark); }
+.nav-preply { background:#ff6b35 !important; color:white !important; padding:0.5rem 1.2rem !important; border-radius:999px !important; }
+.nav-preply:hover { background:#e05520 !important; }
+.nav-cta { background:var(--teal) !important; color:white !important; padding:0.5rem 1.2rem !important; border-radius:999px !important; }
+.nav-cta:hover { background:var(--teal-dark) !important; }
+
+/* HERO */
+#hero {
+  min-height:100vh; padding:68px 2rem 0;
+  display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; max-width:1200px; margin:0 auto; gap:4rem;
+}
+.hero-left { padding:4rem 0; }
+.hero-badge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--yellow-light); border:1.5px solid var(--yellow); border-radius:999px; padding:0.4rem 1rem; font-size:0.8rem; font-weight:700; color:#8a6d00; margin-bottom:1.5rem; animation:fadeUp 0.6s ease both; }
+.hero-title { font-size:clamp(2.8rem,5vw,4.2rem); font-weight:900; line-height:1.1; margin-bottom:1.5rem; animation:fadeUp 0.6s 0.1s ease both; }
+.hero-title .accent { color:var(--teal); font-style:italic; }
+.hero-title .underline-coral { position:relative; display:inline-block; }
+.hero-title .underline-coral::after { content:''; position:absolute; bottom:2px; left:0; right:0; height:5px; background:var(--coral); border-radius:3px; transform:skewX(-3deg); }
+.hero-sub { font-size:1.1rem; color:var(--text-mid); line-height:1.7; margin-bottom:2.5rem; max-width:480px; animation:fadeUp 0.6s 0.2s ease both; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 0.6s 0.3s ease both; }
+.btn-primary { background:var(--teal); color:white; border:none; border-radius:999px; padding:0.9rem 2rem; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s; box-shadow:0 4px 20px rgba(59,191,191,0.35); }
+.btn-primary:hover { background:var(--teal-dark); transform:translateY(-2px); }
+.btn-preply { background:#ff6b35; color:white; border:none; border-radius:999px; padding:0.9rem 2rem; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s; box-shadow:0 4px 20px rgba(255,107,53,0.35); }
+.btn-preply:hover { background:#e05520; transform:translateY(-2px); }
+.btn-secondary { background:white; color:var(--text); border:1.5px solid var(--border); border-radius:999px; padding:0.9rem 2rem; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s; }
+.btn-secondary:hover { border-color:var(--teal); color:var(--teal); transform:translateY(-2px); }
+.hero-stats { display:flex; gap:2rem; margin-top:3rem; animation:fadeUp 0.6s 0.4s ease both; }
+.hero-stat-num { font-family:'Fraunces',serif; font-size:1.8rem; font-weight:900; color:var(--text); }
+.hero-stat-label { font-size:0.8rem; color:var(--muted); font-weight:600; }
+
+/* HERO RIGHT CARD */
+.hero-right { position:relative; animation:fadeUp 0.6s 0.2s ease both; }
+.hero-card-main { background:white; border-radius:var(--radius); box-shadow:var(--shadow-lg); overflow:hidden; border:1px solid var(--border); }
+.hero-card-top { background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); padding:2rem; color:white; }
+.hero-card-top-label { font-size:0.75rem; font-weight:700; opacity:0.8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem; }
+.hero-card-top-title { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700; margin-bottom:0.3rem; }
+.hero-card-top-sub { font-size:0.85rem; opacity:0.85; }
+.hero-card-body { padding:1.5rem; }
+.hc-lesson-row { display:flex; align-items:center; gap:1rem; padding:0.8rem; border-radius:12px; margin-bottom:0.6rem; border:1px solid var(--border); background:var(--bg); }
+.hc-lesson-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.hc-lesson-info { flex:1; }
+.hc-lesson-title { font-size:0.88rem; font-weight:700; color:var(--text); }
+.hc-lesson-level { font-size:0.72rem; color:var(--muted); margin-top:0.1rem; }
+.hc-lesson-badge { font-size:0.68rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:999px; background:var(--teal-light); color:var(--teal-dark); }
+.hero-float-1 { position:absolute; top:-20px; right:-30px; background:white; border-radius:14px; padding:0.9rem 1.1rem; box-shadow:var(--shadow-md); border:1px solid var(--border); display:flex; align-items:center; gap:0.7rem; animation:float1 4s ease-in-out infinite; font-size:0.82rem; font-weight:700; }
+.hero-float-2 { position:absolute; bottom:30px; left:-40px; background:white; border-radius:14px; padding:0.9rem 1.1rem; box-shadow:var(--shadow-md); border:1px solid var(--border); animation:float2 5s ease-in-out infinite; font-size:0.82rem; font-weight:700; }
+.hero-float-2 .progress-bar-wrap { width:120px; height:6px; background:var(--border); border-radius:3px; margin-top:0.4rem; overflow:hidden; }
+.hero-float-2 .progress-bar-fill { height:100%; width:72%; background:var(--teal); border-radius:3px; }
+@keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+/* SECTIONS */
+section { padding:6rem 2rem; }
+.section-inner { max-width:1200px; margin:0 auto; }
+.section-label { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:var(--teal-dark); margin-bottom:0.8rem; }
+.section-title { font-size:clamp(2rem,4vw,3rem); font-weight:900; margin-bottom:1rem; line-height:1.15; }
+.section-sub { font-size:1.05rem; color:var(--text-mid); line-height:1.7; max-width:560px; }
+
+/* FEATURES */
+.features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+.feature-card { background:var(--bg); border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; transition:all 0.2s; position:relative; overflow:hidden; }
+.feature-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--teal); transform:scaleX(0); transition:transform 0.3s; transform-origin:left; }
+.feature-card:hover { border-color:rgba(59,191,191,0.3); transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.feature-card:hover::before { transform:scaleX(1); }
+.feature-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+.feature-title { font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.6rem; }
+.feature-desc { font-size:0.88rem; color:var(--text-mid); line-height:1.7; }
+
+/* LEVELS */
+.levels-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+.level-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius); padding:1.8rem; display:flex; flex-direction:column; gap:1.2rem; transition:all 0.2s; position:relative; overflow:hidden; }
+.level-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--lc); }
+.level-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+.level-header { display:flex; align-items:center; gap:0.8rem; }
+.level-badge { background:rgba(59,191,191,0.12); color:var(--teal-dark); font-family:'Fraunces',serif; font-size:1.1rem; font-weight:900; padding:0.3rem 0.85rem; border-radius:8px; flex-shrink:0; }
+.level-tag { font-size:0.8rem; font-weight:700; color:var(--muted); flex:1; }
+.level-emoji { font-size:1.4rem; }
+.level-goal { font-size:0.87rem; color:var(--text-mid); line-height:1.65; padding:0.8rem; background:var(--bg); border-radius:10px; border-left:3px solid var(--lc); }
+.level-topic-title { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:0.6rem; }
+.level-chips { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.lchip { font-size:0.75rem; font-weight:700; padding:0.25rem 0.7rem; border-radius:999px; background:var(--bg); border:1.5px solid var(--border); color:var(--text-mid); }
+.level-footer { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
+.level-count { font-size:0.78rem; color:var(--muted); font-weight:600; }
+.level-btn { background:var(--lc); color:white; text-decoration:none; font-size:0.8rem; font-weight:800; padding:0.4rem 1rem; border-radius:999px; transition:all 0.15s; opacity:0.9; cursor:pointer; border:none; font-family:'Nunito',sans-serif; }
+.level-btn:hover { opacity:1; transform:translateX(2px); }
+
+/* MATERIALS */
+.materials-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:3.5rem; }
+.material-card { border-radius:var(--radius); padding:2rem; display:flex; gap:1.5rem; align-items:flex-start; border:1.5px solid var(--border); transition:all 0.2s; background:var(--bg); }
+.material-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:rgba(59,191,191,0.3); }
+.material-icon { width:56px; height:56px; flex-shrink:0; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; }
+.material-title { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.4rem; }
+.material-desc { font-size:0.85rem; color:var(--text-mid); line-height:1.6; margin-bottom:0.8rem; }
+.material-chips { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.chip { font-size:0.72rem; font-weight:700; padding:0.2rem 0.7rem; border-radius:999px; border:1.5px solid var(--border); color:var(--text-mid); }
+
+/* TESTIMONIALS */
+.testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+.testimonial-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius); padding:2rem; transition:all 0.2s; display:flex; flex-direction:column; gap:1.2rem; }
+.testimonial-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+.testimonial-stars { color:var(--yellow); font-size:1rem; letter-spacing:2px; }
+.testimonial-text { font-size:0.92rem; color:var(--text-mid); line-height:1.75; font-style:italic; flex:1; }
+.testimonial-text::before { content:'"'; font-family:'Fraunces',serif; font-size:2rem; color:var(--teal); line-height:0; vertical-align:-0.5rem; margin-right:0.2rem; }
+.testimonial-author { display:flex; align-items:center; gap:0.8rem; border-top:1px solid var(--border); padding-top:1rem; }
+.author-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; color:white; flex-shrink:0; }
+.author-name { font-size:0.88rem; font-weight:700; }
+.author-detail { font-size:0.75rem; color:var(--muted); }
+
+/* PREPLY BANNER */
+.preply-banner {
+  background:linear-gradient(135deg,#ff6b35 0%,#e05520 100%);
+  padding:4rem 2rem; text-align:center; position:relative; overflow:hidden;
+}
+.preply-banner::before { content:''; position:absolute; width:400px; height:400px; background:rgba(255,255,255,0.07); border-radius:50%; top:-150px; right:-80px; }
+.preply-banner-inner { max-width:680px; margin:0 auto; position:relative; z-index:1; }
+.preply-banner h2 { font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:900; color:white; margin-bottom:0.8rem; }
+.preply-banner p { font-size:1rem; color:rgba(255,255,255,0.88); line-height:1.7; margin-bottom:2rem; }
+.btn-white { background:white; color:#e05520; border:none; border-radius:999px; padding:1rem 2.5rem; font-family:'Nunito',sans-serif; font-size:1.05rem; font-weight:800; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s; box-shadow:0 8px 28px rgba(0,0,0,0.15); }
+.btn-white:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(0,0,0,0.2); }
+
+/* CTA */
+#cta { background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); padding:5rem 2rem; text-align:center; position:relative; overflow:hidden; }
+#cta::before { content:''; position:absolute; width:500px; height:500px; background:rgba(255,255,255,0.05); border-radius:50%; top:-200px; right:-100px; }
+.cta-inner { max-width:680px; margin:0 auto; position:relative; z-index:1; }
+.cta-title { font-size:clamp(2rem,4vw,3rem); font-weight:900; color:white; margin-bottom:1rem; }
+.cta-sub { font-size:1.05rem; color:rgba(255,255,255,0.85); line-height:1.7; margin-bottom:2.5rem; }
+.btn-white-teal { background:white; color:var(--teal-dark); border:none; border-radius:999px; padding:1rem 2.5rem; font-family:'Nunito',sans-serif; font-size:1.05rem; font-weight:800; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; transition:all 0.2s; box-shadow:0 8px 28px rgba(0,0,0,0.15); }
+.btn-white-teal:hover { transform:translateY(-3px); }
+
+/* FOOTER */
+footer { background:var(--text); color:rgba(255,255,255,0.7); padding:3rem 2rem; }
+.footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+.footer-logo { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; color:white; }
+.footer-logo span { color:var(--teal); }
+.footer-links { display:flex; gap:1.5rem; }
+.footer-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.85rem; transition:color 0.15s; }
+.footer-links a:hover { color:var(--teal); }
+.footer-copy { font-size:0.8rem; }
+
+/* ══════════════════════════════════
+   LOGIN MODAL
+══════════════════════════════════ */
+.modal-overlay { position:fixed; inset:0; z-index:200; background:rgba(26,26,46,0.6); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:1rem; }
+.modal-box { background:white; border-radius:var(--radius); padding:2.5rem; width:100%; max-width:420px; box-shadow:var(--shadow-lg); animation:fadeUp 0.3s ease both; position:relative; }
+.modal-close { position:absolute; top:1rem; right:1rem; width:32px; height:32px; border-radius:8px; background:var(--bg); border:1px solid var(--border); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1rem; color:var(--muted); transition:all 0.15s; }
+.modal-close:hover { background:var(--coral-light); color:var(--coral); }
+.modal-logo { text-align:center; margin-bottom:1.8rem; }
+.modal-logo-mark { width:56px; height:56px; background:var(--teal); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 0.8rem; }
+.modal-title { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700; }
+.modal-sub { font-size:0.85rem; color:var(--muted); margin-top:0.2rem; }
+.tab-switch { display:flex; background:var(--bg); border-radius:12px; padding:4px; margin-bottom:1.8rem; border:1px solid var(--border); }
+.tab-switch button { flex:1; padding:0.6rem; border:none; border-radius:9px; font-family:'Nunito',sans-serif; font-size:0.85rem; font-weight:700; cursor:pointer; transition:all 0.2s; background:transparent; color:var(--muted); }
+.tab-switch button.active { background:var(--teal); color:white; box-shadow:0 2px 8px rgba(59,191,191,0.3); }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); margin-bottom:0.45rem; }
+.form-group input, .form-group select { width:100%; background:var(--bg); border:1.5px solid var(--border); border-radius:10px; padding:0.75rem 1rem; color:var(--text); font-family:'Nunito',sans-serif; font-size:0.95rem; outline:none; transition:border-color 0.2s; }
+.form-group input:focus, .form-group select:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(59,191,191,0.12); }
+.btn-login { width:100%; background:var(--teal); color:white; border:none; border-radius:10px; padding:0.85rem; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800; cursor:pointer; transition:all 0.2s; margin-top:0.5rem; box-shadow:0 4px 16px rgba(59,191,191,0.3); }
+.btn-login:hover { background:var(--teal-dark); transform:translateY(-1px); }
+.login-error { background:var(--coral-light); border:1px solid rgba(232,82,74,0.25); border-radius:8px; padding:0.7rem 1rem; font-size:0.85rem; color:var(--coral); margin-bottom:1rem; display:none; }
+.demo-hint { text-align:center; margin-top:1.2rem; font-size:0.78rem; color:var(--muted); line-height:1.6; }
+.demo-hint strong { color:var(--teal-dark); }
+
+/* ══════════════════════════════════
+   STUDENT PORTAL
+══════════════════════════════════ */
+#portal-page { min-height:100vh; background:var(--bg); }
+
+.portal-nav {
+  position:sticky; top:0; z-index:50;
+  background:white; border-bottom:1px solid var(--border);
+  padding:0 2rem; height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.portal-nav-logo { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; color:var(--text); }
+.portal-nav-logo span { color:var(--teal); }
+.portal-nav-right { display:flex; align-items:center; gap:1rem; }
+.portal-nav-student { display:flex; align-items:center; gap:0.6rem; font-size:0.88rem; font-weight:700; color:var(--text-mid); }
+.portal-nav-avatar { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem; color:white; }
+.portal-logout { background:none; border:1.5px solid var(--border); border-radius:8px; padding:0.4rem 0.9rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:700; color:var(--muted); cursor:pointer; transition:all 0.15s; }
+.portal-logout:hover { border-color:var(--coral); color:var(--coral); }
+
+.portal-body { display:grid; grid-template-columns:240px 1fr; min-height:calc(100vh - 64px); }
+
+/* SIDEBAR */
+.portal-sidebar {
+  background:white; border-right:1px solid var(--border);
+  padding:1.5rem 1rem;
+  display:flex; flex-direction:column; gap:0.3rem;
+}
+.sidebar-section-label { font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); padding:0.5rem 0.8rem; margin-top:0.8rem; }
+.sidebar-btn { display:flex; align-items:center; gap:0.7rem; padding:0.65rem 0.9rem; border-radius:10px; border:none; background:none; font-family:'Nunito',sans-serif; font-size:0.88rem; font-weight:700; color:var(--text-mid); cursor:pointer; width:100%; text-align:left; transition:all 0.15s; }
+.sidebar-btn:hover { background:var(--teal-light); color:var(--teal-dark); }
+.sidebar-btn.active { background:var(--teal); color:white; }
+.sidebar-btn .sb-icon { font-size:1.1rem; width:22px; text-align:center; }
+
+/* PORTAL CONTENT */
+.portal-content { padding:2rem; overflow-y:auto; }
+.portal-view { display:none; }
+.portal-view.active { display:block; }
+
+/* DASHBOARD */
+.portal-greeting { margin-bottom:2rem; }
+.portal-greeting h2 { font-size:1.8rem; font-weight:900; margin-bottom:0.3rem; }
+.portal-greeting p { color:var(--text-mid); font-size:0.95rem; }
+
+.dashboard-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem; }
+.dash-stat { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.2rem 1.5rem; }
+.dash-stat-num { font-family:'Fraunces',serif; font-size:1.8rem; font-weight:900; color:var(--text); }
+.dash-stat-label { font-size:0.78rem; color:var(--muted); font-weight:600; margin-top:0.1rem; }
+
+.dashboard-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.dash-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; }
+.dash-card-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; margin-bottom:1.2rem; display:flex; align-items:center; gap:0.5rem; }
+
+.lesson-row { display:flex; align-items:center; gap:0.9rem; padding:0.7rem; border-radius:10px; border:1px solid var(--border); margin-bottom:0.5rem; background:var(--bg); }
+.lesson-row-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.lesson-row-title { font-size:0.85rem; font-weight:700; }
+.lesson-row-sub { font-size:0.72rem; color:var(--muted); }
+.lesson-row-badge { font-size:0.65rem; font-weight:700; padding:0.2rem 0.55rem; border-radius:999px; margin-left:auto; flex-shrink:0; }
+.badge-done { background:var(--teal-light); color:var(--teal-dark); }
+.badge-progress { background:var(--yellow-light); color:#8a6d00; }
+.badge-next { background:var(--bg); color:var(--muted); border:1px solid var(--border); }
+
+.progress-item { margin-bottom:1rem; }
+.progress-label { display:flex; justify-content:space-between; font-size:0.82rem; font-weight:700; margin-bottom:0.4rem; }
+.progress-bar { height:8px; background:var(--bg); border-radius:4px; overflow:hidden; border:1px solid var(--border); }
+.progress-fill { height:100%; border-radius:4px; background:var(--teal); }
+
+/* MESSAGES */
+.message-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; margin-bottom:1rem; }
+.message-header { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.8rem; }
+.message-avatar { width:38px; height:38px; border-radius:50%; background:var(--teal); display:flex; align-items:center; justify-content:center; font-size:1rem; color:white; flex-shrink:0; }
+.message-from { font-size:0.85rem; font-weight:700; }
+.message-date { font-size:0.72rem; color:var(--muted); }
+.message-body { font-size:0.88rem; color:var(--text-mid); line-height:1.7; padding:1rem; background:var(--bg); border-radius:10px; }
+.message-unread { border-left:3px solid var(--teal); }
+
+/* GRAMMAR CONTRASTS */
+.contrast-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.contrast-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; cursor:pointer; transition:all 0.2s; }
+.contrast-card:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+.contrast-title { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.4rem; }
+.contrast-sub { font-size:0.8rem; color:var(--muted); margin-bottom:0.8rem; }
+.contrast-chips { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.contrast-chip { font-size:0.72rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:999px; }
+
+/* VOCAB */
+.vocab-topics { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.vocab-topic-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.3rem; cursor:pointer; transition:all 0.2s; text-align:center; }
+.vocab-topic-card:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+.vocab-topic-icon { font-size:2rem; margin-bottom:0.5rem; }
+.vocab-topic-name { font-size:0.88rem; font-weight:700; }
+.vocab-topic-count { font-size:0.72rem; color:var(--muted); margin-top:0.2rem; }
+
+/* SKILLS */
+.skills-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.skill-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; cursor:pointer; transition:all 0.2s; }
+.skill-card:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+.skill-icon { font-size:2rem; margin-bottom:0.7rem; }
+.skill-name { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; margin-bottom:0.3rem; }
+.skill-desc { font-size:0.8rem; color:var(--text-mid); line-height:1.6; }
+
+/* PORTAL CONTENT CARD */
+.content-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; margin-bottom:1.5rem; }
+.content-card-title { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; margin-bottom:1rem; }
+
+/* SECTION HEADER */
+.view-header { margin-bottom:1.5rem; }
+.view-header h3 { font-size:1.5rem; font-weight:900; margin-bottom:0.3rem; }
+.view-header p { font-size:0.9rem; color:var(--text-mid); }
+
+/* LOCKED OVERLAY */
+.locked-card { position:relative; overflow:hidden; }
+.locked-overlay { position:absolute; inset:0; background:rgba(248,249,252,0.85); backdrop-filter:blur(2px); border-radius:var(--radius-sm); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; }
+.locked-overlay .lock-icon { font-size:1.8rem; }
+.locked-overlay p { font-size:0.82rem; color:var(--text-mid); font-weight:600; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  #hero { grid-template-columns:1fr; padding-top:calc(68px + 2rem); }
+  .hero-right { display:none; }
+  .features-grid,.levels-grid,.testimonials-grid { grid-template-columns:1fr; }
+  .materials-grid { grid-template-columns:1fr; }
+  .portal-body { grid-template-columns:1fr; }
+  .portal-sidebar { display:none; }
+  .dashboard-stats { grid-template-columns:repeat(2,1fr); }
+  .dashboard-grid,.contrast-grid,.skills-grid { grid-template-columns:1fr; }
+  .vocab-topics { grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     PUBLIC SITE
+══════════════════════════════════ -->
+<div id="public-page" class="page active">
+
+<nav>
+  <a href="#" class="nav-logo" onclick="showPublic()">
+    <div class="nav-logo-mark">🌐</div>
+    <div class="nav-logo-text">Spanish<span>Portal</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="#features">What you get</a>
+    <a href="#levels">Levels</a>
+    <a href="#materials">Materials</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="https://preply.in/GUSTAVO6EN1248187611?ts=17729000" target="_blank" class="nav-preply">📚 Book on Preply</a>
+    <a href="#" class="nav-cta" onclick="openLogin(event)">Student Login →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🌍 Real Spanish for real life</div>
+    <h1 class="hero-title">
+      Learn Spanish<br>
+      the <span class="accent">real</span> way —<br>
+      <span class="underline-coral">not the textbook way</span>
+    </h1>
+    <p class="hero-sub">Structured lessons, grammar guides, vocabulary and skills practice — all in one place. From complete beginner A0 to advanced C1. European and Latin American Spanish.</p>
+    <div class="hero-actions">
+      <a href="#levels" class="btn-primary">Explore all levels →</a>
+      <a href="https://preply.in/GUSTAVO6EN1248187611?ts=17729000" target="_blank" class="btn-preply">📚 Book a class on Preply</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">A0–C1</div><div class="hero-stat-label">6 levels</div></div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div><div class="hero-stat-num">100+</div><div class="hero-stat-label">Lessons</div></div>
+      <div style="width:1px;background:var(--border)"></div>
+      <div><div class="hero-stat-num">Free</div><div class="hero-stat-label">To explore</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-main">
+      <div class="hero-card-top">
+        <div class="hero-card-top-label">Your lesson today</div>
+        <div class="hero-card-top-title">Verbos Irregulares</div>
+        <div class="hero-card-top-sub">Present tense · A1–A2 · 8 activities</div>
+      </div>
+      <div class="hero-card-body">
+        <div class="hc-lesson-row">
+          <div class="hc-lesson-icon" style="background:#e8f9f9">📖</div>
+          <div class="hc-lesson-info"><div class="hc-lesson-title">SER vs. ESTAR</div><div class="hc-lesson-level">Grammar · B1</div></div>
+          <div class="hc-lesson-badge">✓ Done</div>
+        </div>
+        <div class="hc-lesson-row">
+          <div class="hc-lesson-icon" style="background:#fff0ef">⚡</div>
+          <div class="hc-lesson-info"><div class="hc-lesson-title">Vocabulario: Viajes</div><div class="hc-lesson-level">Vocabulary · A2</div></div>
+          <div class="hc-lesson-badge" style="background:#fff0ef;color:var(--coral)">In progress</div>
+        </div>
+        <div class="hc-lesson-row">
+          <div class="hc-lesson-icon" style="background:#fffbe6">🎧</div>
+          <div class="hc-lesson-info"><div class="hc-lesson-title">Listening: En el aeropuerto</div><div class="hc-lesson-level">Skills · B1</div></div>
+          <div class="hc-lesson-badge" style="background:var(--bg);color:var(--muted)">Next</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-float-1"><span style="font-size:1.2rem">🎉</span><div><div style="font-size:0.8rem;font-weight:800;color:var(--text)">Lesson streak!</div><div style="font-size:0.7rem;color:var(--muted)">7 days in a row</div></div></div>
+    <div class="hero-float-2"><div style="font-size:0.8rem;font-weight:800;color:var(--text);margin-bottom:0.1rem">Your progress</div><div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.4rem">B1 level · 72% complete</div><div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="background:white">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">✦ What you get</div>
+      <h2 class="section-title">Everything you need<br>to speak Spanish confidently</h2>
+      <p class="section-sub">A complete learning platform — structured lessons, grammar guides, vocabulary and skills practice for every level.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#e8f9f9">📚</div><div class="feature-title">Structured by Level</div><div class="feature-desc">A clear A0 to C1 roadmap so you always know where you are and where you're going. No guessing, no gaps.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#fff0ef">⚡</div><div class="feature-title">Grammar That Makes Sense</div><div class="feature-desc">Cognitive grammar approach — understand why Spanish works the way it does, not just memorise rules.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#fffbe6">🎧</div><div class="feature-title">Real Listening & Speaking</div><div class="feature-desc">Authentic dialogues, pronunciation guides and speaking practice. Ready for real conversations.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#f3eeff">📝</div><div class="feature-title">Vocabulary by Topic</div><div class="feature-desc">Words organised around real life — travel, work, health, shopping. Learn what you'll actually use.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#e8f9f9">🔓</div><div class="feature-title">Free to Explore</div><div class="feature-desc">Browse lessons freely. Students get a private portal with personalised lessons and progress tracking.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon" style="background:#fff0ef">🌍</div><div class="feature-title">Spain & Latin America</div><div class="feature-desc">Learn both varieties so you're ready wherever your adventures or work take you.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVELS -->
+<section id="levels" style="background:var(--bg)">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">✦ All levels</div>
+      <h2 class="section-title">Find your level,<br>start learning today</h2>
+      <p class="section-sub" style="margin:0 auto">From your very first word to advanced fluency — structured lessons for every stage.</p>
+    </div>
+    <div class="levels-grid">
+      <div class="level-card reveal" style="--lc:#3BBFBF">
+        <div class="level-header"><div class="level-badge">A0</div><div class="level-tag">Complete Beginner</div><div class="level-emoji">🌱</div></div>
+        <div class="level-goal">You'll learn to introduce yourself, greet people and handle basic everyday situations.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Greetings</span><span class="lchip">Numbers & dates</span><span class="lchip">Pronunciation</span><span class="lchip">SER / TENER</span></div></div>
+        <div class="level-footer"><div class="level-count">🔓 5 free lessons</div><button class="level-btn" onclick="openLogin(event)">See all →</button></div>
+      </div>
+      <div class="level-card reveal" style="--lc:#5BBDE0">
+        <div class="level-header"><div class="level-badge" style="background:rgba(91,189,224,0.15);color:#3a8fb5">A1</div><div class="level-tag">Beginner</div><div class="level-emoji">🌿</div></div>
+        <div class="level-goal">You'll handle simple conversations — shopping, directions, talking about your daily life.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Present tense</span><span class="lchip">SER vs ESTAR</span><span class="lchip">Family vocab</span><span class="lchip">Irregular verbs</span></div></div>
+        <div class="level-footer"><div class="level-count">🔓 4 free · 🔒 8 members</div><button class="level-btn" style="background:#5BBDE0" onclick="openLogin(event)">See all →</button></div>
+      </div>
+      <div class="level-card reveal" style="--lc:#F5C842">
+        <div class="level-header"><div class="level-badge" style="background:#fffbe6;color:#8a6d00">A2</div><div class="level-tag">Elementary</div><div class="level-emoji">☀️</div></div>
+        <div class="level-goal">You'll talk about past experiences, make plans and describe people and places.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Preterite tense</span><span class="lchip">Reflexive verbs</span><span class="lchip">POR vs PARA</span><span class="lchip">Travel vocab</span></div></div>
+        <div class="level-footer"><div class="level-count">🔓 3 free · 🔒 9 members</div><button class="level-btn" style="background:#F5C842;color:#1a1a2e" onclick="openLogin(event)">See all →</button></div>
+      </div>
+      <div class="level-card reveal" style="--lc:#E8924A">
+        <div class="level-header"><div class="level-badge" style="background:#fff3e8;color:#a0531a">B1</div><div class="level-tag">Intermediate</div><div class="level-emoji">🔥</div></div>
+        <div class="level-goal">You'll express opinions, handle unexpected situations and understand native speakers.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Subjunctive intro</span><span class="lchip">Imperfect vs Preterite</span><span class="lchip">SABER vs CONOCER</span><span class="lchip">Work vocab</span></div></div>
+        <div class="level-footer"><div class="level-count">🔒 Members only</div><button class="level-btn" style="background:#E8924A" onclick="openLogin(event)">See all →</button></div>
+      </div>
+      <div class="level-card reveal" style="--lc:#E8524A">
+        <div class="level-header"><div class="level-badge" style="background:#fdf0ef;color:#b03030">B2</div><div class="level-tag">Upper Intermediate</div><div class="level-emoji">⚡</div></div>
+        <div class="level-goal">You'll engage fluently with native speakers and handle complex topics with confidence.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Subjunctive in depth</span><span class="lchip">Passive voice</span><span class="lchip">PERO vs SINO</span><span class="lchip">Complex sentences</span></div></div>
+        <div class="level-footer"><div class="level-count">🔒 Members only</div><button class="level-btn" style="background:#E8524A" onclick="openLogin(event)">See all →</button></div>
+      </div>
+      <div class="level-card reveal" style="--lc:#a855f7">
+        <div class="level-header"><div class="level-badge" style="background:#f5f0ff;color:#6b21a8">C1</div><div class="level-tag">Advanced</div><div class="level-emoji">🏆</div></div>
+        <div class="level-goal">You'll express yourself spontaneously, understand nuance, irony and cultural references.</div>
+        <div class="level-topics"><div class="level-topic-title">Topics covered</div><div class="level-chips"><span class="lchip">Advanced subjunctive</span><span class="lchip">Idiomatic expressions</span><span class="lchip">Register & style</span><span class="lchip">Spanish culture</span></div></div>
+        <div class="level-footer"><div class="level-count">🔒 Members only</div><button class="level-btn" style="background:#a855f7" onclick="openLogin(event)">See all →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials" style="background:white">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">✦ Materials</div>
+      <h2 class="section-title">Rich resources,<br>all in one place</h2>
+      <p class="section-sub">Your private portal includes everything you need to practise between classes.</p>
+    </div>
+    <div class="materials-grid">
+      <div class="material-card reveal"><div class="material-icon" style="background:#e8f9f9">⚡</div><div><div class="material-title">Grammar Contrasts</div><div class="material-desc">The trickiest Spanish pairs explained clearly — SER/ESTAR, POR/PARA, MUY/MUCHO and more — with interactive quizzes.</div><div class="material-chips"><span class="chip">SER vs ESTAR</span><span class="chip">POR vs PARA</span><span class="chip">+4 more</span></div></div></div>
+      <div class="material-card reveal"><div class="material-icon" style="background:#fffbe6">📝</div><div><div class="material-title">Vocabulary by Topic</div><div class="material-desc">7 real-life topics with flashcard practice — travel, work, health, shopping, home and more.</div><div class="material-chips"><span class="chip">✈️ Travel</span><span class="chip">💼 Work</span><span class="chip">🏥 Health</span><span class="chip">+4 more</span></div></div></div>
+      <div class="material-card reveal"><div class="material-icon" style="background:#f3eeff">🎯</div><div><div class="material-title">Skills Practice</div><div class="material-desc">Listening dialogues, speaking prompts, authentic reading texts and guided writing activities for all levels.</div><div class="material-chips"><span class="chip">🎧 Listening</span><span class="chip">🗣️ Speaking</span><span class="chip">📖 Reading</span><span class="chip">✍️ Writing</span></div></div></div>
+      <div class="material-card reveal"><div class="material-icon" style="background:#fff0ef">📽️</div><div><div class="material-title">Lesson Presentations</div><div class="material-desc">Slide-based lesson materials used in class, available to review afterwards at your own pace.</div><div class="material-chips"><span class="chip">A1–C1</span><span class="chip">Interactive slides</span><span class="chip">Always updated</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--bg)">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label" style="justify-content:center">✦ Reviews</div>
+      <h2 class="section-title">What students say</h2>
+      <p class="section-sub" style="margin:0 auto">Real feedback from real learners.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">I tried apps and group classes for years. Nothing clicked until I found Spanish Portal. The cognitive approach finally made grammar make sense to me.</div><div class="testimonial-author"><div class="author-avatar" style="background:var(--teal)">S</div><div><div class="author-name">Sarah M.</div><div class="author-detail">🇬🇧 London · B1 level</div></div></div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">I needed Spanish for a work project in Mexico. In 3 months I went from absolute beginner to holding real conversations. The personalised plan made all the difference.</div><div class="testimonial-author"><div class="author-avatar" style="background:var(--coral)">J</div><div><div class="author-name">James T.</div><div class="author-detail">🇺🇸 New York · A2–B1</div></div></div></div>
+      <div class="testimonial-card reveal"><div class="testimonial-stars">★★★★★</div><div class="testimonial-text">The student portal is brilliant — I can review presentations, do vocabulary flashcards and track my progress. It feels like a proper school but better.</div><div class="testimonial-author"><div class="author-avatar" style="background:var(--yellow)">M</div><div><div class="author-name">Marie D.</div><div class="author-detail">🇫🇷 Paris · B2 level</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPLY BANNER -->
+<div class="preply-banner">
+  <div class="preply-banner-inner reveal">
+    <h2>Want live classes with a native teacher?</h2>
+    <p>Book a trial lesson on Preply — personalised 1-on-1 classes to accelerate your Spanish, from any level, at your own pace.</p>
+    <a href="https://preply.in/GUSTAVO6EN1248187611?ts=17729000" target="_blank" class="btn-white">📚 See my Preply profile →</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <h2 class="cta-title">Ready to start?</h2>
+    <p class="cta-sub">Already a student? Log in to your private portal to access your lessons, materials and progress.</p>
+    <a href="#" class="btn-white-teal" onclick="openLogin(event)">Student Login →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Spanish<span>Portal</span></div>
+    <div class="footer-links">
+      <a href="#features">What you get</a>
+      <a href="#levels">Levels</a>
+      <a href="#materials">Materials</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="https://preply.in/GUSTAVO6EN1248187611?ts=17729000" target="_blank">Preply</a>
+      <a href="#" onclick="openLogin(event)">Student Login</a>
+    </div>
+    <div class="footer-copy">© 2026 SpanishPortal. All rights reserved.</div>
+  </div>
+</footer>
+
+</div><!-- end #public-page -->
+
+
+<!-- ══════════════════════════════════
+     STUDENT PORTAL
+══════════════════════════════════ -->
+<div id="portal-page" class="page">
+
+  <nav class="portal-nav">
+    <div class="portal-nav-logo">Spanish<span>Portal</span></div>
+    <div class="portal-nav-right">
+      <div class="portal-nav-student">
+        <div class="portal-nav-avatar" id="portal-avatar" style="background:var(--teal)">A</div>
+        <span id="portal-name">Student</span>
+      </div>
+      <button class="portal-logout" onclick="doLogout()">Sign out</button>
+    </div>
+  </nav>
+
+  <div class="portal-body">
+
+    <!-- SIDEBAR -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-section-label">Main</div>
+      <button class="sidebar-btn active" onclick="showView('dashboard',this)"><span class="sb-icon">🏠</span> Dashboard</button>
+      <button class="sidebar-btn" onclick="showView('lessons',this)"><span class="sb-icon">📚</span> My Lessons</button>
+      <button class="sidebar-btn" onclick="showView('progress',this)"><span class="sb-icon">📊</span> My Progress</button>
+      <button class="sidebar-btn" onclick="showView('messages',this)"><span class="sb-icon">💬</span> Messages <span id="msg-badge" style="background:var(--coral);color:white;font-size:0.65rem;padding:0.1rem 0.45rem;border-radius:999px;margin-left:auto">2</span></button>
+
+      <div class="sidebar-section-label">Materials</div>
+      <button class="sidebar-btn" onclick="showView('grammar',this)"><span class="sb-icon">⚡</span> Grammar</button>
+      <button class="sidebar-btn" onclick="showView('vocabulary',this)"><span class="sb-icon">📝</span> Vocabulary</button>
+      <button class="sidebar-btn" onclick="showView('skills',this)"><span class="sb-icon">🎯</span> Skills</button>
+      <button class="sidebar-btn" onclick="showView('presentations',this)"><span class="sb-icon">📽️</span> Presentations</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="portal-content">
+
+      <!-- DASHBOARD -->
+      <div id="view-dashboard" class="portal-view active">
+        <div class="portal-greeting">
+          <h2>Welcome back, <span id="greeting-name">Student</span>! 👋</h2>
+          <p>Here's a summary of your learning journey.</p>
+        </div>
+        <div class="dashboard-stats">
+          <div class="dash-stat"><div class="dash-stat-num" id="stat-level">A2</div><div class="dash-stat-label">Current level</div></div>
+          <div class="dash-stat"><div class="dash-stat-num" id="stat-lessons">8</div><div class="dash-stat-label">Lessons done</div></div>
+          <div class="dash-stat"><div class="dash-stat-num" id="stat-streak">5</div><div class="dash-stat-label">Day streak 🔥</div></div>
+          <div class="dash-stat"><div class="dash-stat-num" id="stat-progress">62%</div><div class="dash-stat-label">Level progress</div></div>
+        </div>
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <div class="dash-card-title">📚 Current lessons</div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">📖</div><div><div class="lesson-row-title">SER vs. ESTAR</div><div class="lesson-row-sub">Grammar · B1</div></div><div class="lesson-row-badge badge-done">✓ Done</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#fff0ef">⚡</div><div><div class="lesson-row-title">Vocabulario: Viajes</div><div class="lesson-row-sub">Vocabulary · A2</div></div><div class="lesson-row-badge badge-progress">In progress</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#fffbe6">🎧</div><div><div class="lesson-row-title">Listening: En el aeropuerto</div><div class="lesson-row-sub">Skills · B1</div></div><div class="lesson-row-badge badge-next">Next</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#f3eeff">✍️</div><div><div class="lesson-row-title">Writing: Mi día a día</div><div class="lesson-row-sub">Skills · A2</div></div><div class="lesson-row-badge badge-next">Next</div></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-title">📊 Level progress</div>
+            <div class="progress-item"><div class="progress-label"><span>Grammar</span><span>70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Vocabulary</span><span>55%</span></div><div class="progress-bar"><div class="progress-fill" style="width:55%;background:var(--yellow)"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Listening</span><span>45%</span></div><div class="progress-bar"><div class="progress-fill" style="width:45%;background:var(--coral)"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Speaking</span><span>60%</span></div><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#a855f7"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Writing</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#E8924A"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LESSONS -->
+      <div id="view-lessons" class="portal-view">
+        <div class="view-header"><h3>📚 My Lessons</h3><p>Lessons assigned to you by your teacher.</p></div>
+        <div class="content-card">
+          <div class="content-card-title">Active lessons</div>
+          <div class="lesson-row" style="cursor:pointer" onclick="openLesson('ser-estar')"><div class="lesson-row-icon" style="background:#e8f9f9">📖</div><div><div class="lesson-row-title">SER vs. ESTAR — the complete guide</div><div class="lesson-row-sub">Grammar contrast · B1 · Assigned 3 days ago</div></div><div class="lesson-row-badge badge-done">Open →</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#fff0ef">🌍</div><div><div class="lesson-row-title">Vocabulario: Viajes y turismo</div><div class="lesson-row-sub">Vocabulary · A2 · 24 words</div></div><div class="lesson-row-badge badge-progress">In progress</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#fffbe6">🎧</div><div><div class="lesson-row-title">Listening: En el aeropuerto</div><div class="lesson-row-sub">Skill: Listening · B1</div></div><div class="lesson-row-badge badge-next">Next</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#f3eeff">✍️</div><div><div class="lesson-row-title">Writing: Mi día a día</div><div class="lesson-row-sub">Skill: Writing · A2</div></div><div class="lesson-row-badge badge-next">Next</div></div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-title">Completed lessons</div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">📖</div><div><div class="lesson-row-title">Present tense — regular verbs</div><div class="lesson-row-sub">Grammar · A1</div></div><div class="lesson-row-badge badge-done">✓ Done</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#fffbe6">📖</div><div><div class="lesson-row-title">Greetings & introductions</div><div class="lesson-row-sub">Vocabulary · A0</div></div><div class="lesson-row-badge badge-done">✓ Done</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#f3eeff">🎧</div><div><div class="lesson-row-title">Listening: En el mercado</div><div class="lesson-row-sub">Skill: Listening · A1</div></div><div class="lesson-row-badge badge-done">✓ Done</div></div>
+        </div>
+      </div>
+
+      <!-- PROGRESS -->
+      <div id="view-progress" class="portal-view">
+        <div class="view-header"><h3>📊 My Progress</h3><p>Your learning journey from A0 to C1.</p></div>
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <div class="dash-card-title">📈 Skills breakdown</div>
+            <div class="progress-item"><div class="progress-label"><span>Grammar</span><span>70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Vocabulary</span><span>55%</span></div><div class="progress-bar"><div class="progress-fill" style="width:55%;background:var(--yellow)"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Listening</span><span>45%</span></div><div class="progress-bar"><div class="progress-fill" style="width:45%;background:var(--coral)"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Speaking</span><span>60%</span></div><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#a855f7"></div></div></div>
+            <div class="progress-item"><div class="progress-label"><span>Writing</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#E8924A"></div></div></div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-title">🎯 Level journey</div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">✅</div><div><div class="lesson-row-title">A0 — Complete Beginner</div><div class="lesson-row-sub">Completed</div></div><div class="lesson-row-badge badge-done">100%</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">✅</div><div><div class="lesson-row-title">A1 — Beginner</div><div class="lesson-row-sub">Completed</div></div><div class="lesson-row-badge badge-done">100%</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#fffbe6">📖</div><div><div class="lesson-row-title">A2 — Elementary</div><div class="lesson-row-sub">In progress</div></div><div class="lesson-row-badge badge-progress">62%</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:var(--bg)">🔒</div><div><div class="lesson-row-title">B1 — Intermediate</div><div class="lesson-row-sub">Not started</div></div><div class="lesson-row-badge badge-next">—</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MESSAGES -->
+      <div id="view-messages" class="portal-view">
+        <div class="view-header"><h3>💬 Messages from your teacher</h3><p>Notes and feedback from Gustavo.</p></div>
+        <div class="message-card message-unread">
+          <div class="message-header"><div class="message-avatar">👨‍🏫</div><div><div class="message-from">Gustavo · Your teacher</div><div class="message-date">Today · New</div></div></div>
+          <div class="message-body">¡Hola! Great work this week on the SER vs ESTAR lesson. For our next class I'd like you to review the vocabulary in the "Viajes" section and try the listening activity "En el aeropuerto". See you soon! 🙂</div>
+        </div>
+        <div class="message-card message-unread">
+          <div class="message-header"><div class="message-avatar">👨‍🏫</div><div><div class="message-from">Gustavo · Your teacher</div><div class="message-date">3 days ago · New</div></div></div>
+          <div class="message-body">Just a reminder: don't forget to practise the writing exercise I assigned — "Mi día a día". Try to write at least 80 words and don't worry about making mistakes, that's how we learn! ✍️</div>
+        </div>
+        <div class="message-card">
+          <div class="message-header"><div class="message-avatar">👨‍🏫</div><div><div class="message-from">Gustavo · Your teacher</div><div class="message-date">1 week ago</div></div></div>
+          <div class="message-body">Welcome to your Spanish Portal! 🎉 Here you'll find all your lessons, materials and progress tracking. If you have any questions, I'll leave you notes here. ¡Vamos!</div>
+        </div>
+      </div>
+
+      <!-- GRAMMAR -->
+      <div id="view-grammar" class="portal-view">
+        <div class="view-header"><h3>⚡ Grammar Contrasts</h3><p>Master the trickiest pairs in Spanish.</p></div>
+        <div class="contrast-grid">
+          <div class="contrast-card" onclick="openLesson('ser-estar')"><div class="contrast-title">SER vs. ESTAR</div><div class="contrast-sub">When to use each verb "to be"</div><div class="contrast-chips"><span class="contrast-chip" style="background:#e8f9f9;color:var(--teal-dark)">A1–B2</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Full lesson</span></div></div>
+          <div class="contrast-card"><div class="contrast-title">POR vs. PARA</div><div class="contrast-sub">Purpose, cause, exchange and more</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fffbe6;color:#8a6d00">A2–B1</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Quiz included</span></div></div>
+          <div class="contrast-card"><div class="contrast-title">SABER vs. CONOCER</div><div class="contrast-sub">Two ways to say "to know"</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fff0ef;color:var(--coral)">A2–B1</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Quiz included</span></div></div>
+          <div class="contrast-card"><div class="contrast-title">PERO vs. SINO</div><div class="contrast-sub">Two types of "but" in Spanish</div><div class="contrast-chips"><span class="contrast-chip" style="background:#f3eeff;color:#6b21a8">B1–B2</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Quiz included</span></div></div>
+          <div class="contrast-card"><div class="contrast-title">MUY vs. MUCHO</div><div class="contrast-sub">Intensifiers — when to use each</div><div class="contrast-chips"><span class="contrast-chip" style="background:#e8f9f9;color:var(--teal-dark)">A1–A2</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Quiz included</span></div></div>
+          <div class="contrast-card"><div class="contrast-title">PORQUE vs. POR QUÉ</div><div class="contrast-sub">Because / Why — the key difference</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fffbe6;color:#8a6d00">A2–B1</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">Quiz included</span></div></div>
+        </div>
+      </div>
+
+      <!-- VOCABULARY -->
+      <div id="view-vocabulary" class="portal-view">
+        <div class="view-header"><h3>📝 Vocabulary</h3><p>Practise words organised by real-life topics.</p></div>
+        <div class="vocab-topics">
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">✈️</div><div class="vocab-topic-name">Travel & Tourism</div><div class="vocab-topic-count">28 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🏠</div><div class="vocab-topic-name">Home & Living</div><div class="vocab-topic-count">24 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">💼</div><div class="vocab-topic-name">Work & Career</div><div class="vocab-topic-count">26 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🛒</div><div class="vocab-topic-name">Shopping</div><div class="vocab-topic-count">22 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🏥</div><div class="vocab-topic-name">Health & Body</div><div class="vocab-topic-count">25 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🎭</div><div class="vocab-topic-name">Free Time & Hobbies</div><div class="vocab-topic-count">24 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🏙️</div><div class="vocab-topic-name">City & Transport</div><div class="vocab-topic-count">27 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">🍽️</div><div class="vocab-topic-name">Food & Restaurants</div><div class="vocab-topic-count">30 words</div></div>
+          <div class="vocab-topic-card"><div class="vocab-topic-icon">👨‍👩‍👧</div><div class="vocab-topic-name">Family & Relationships</div><div class="vocab-topic-count">20 words</div></div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div id="view-skills" class="portal-view">
+        <div class="view-header"><h3>🎯 Skills Practice</h3><p>Practice all four language skills.</p></div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-icon">🎧</div><div class="skill-name">Listening</div><div class="skill-desc">Authentic dialogues and conversations. Train your ear for real Spanish — from markets to airports.</div></div>
+          <div class="skill-card"><div class="skill-icon">🗣️</div><div class="skill-name">Speaking</div><div class="skill-desc">Conversation prompts and role-play scenarios. Build confidence to speak from day one.</div></div>
+          <div class="skill-card"><div class="skill-icon">📖</div><div class="skill-name">Reading</div><div class="skill-desc">Graded texts from simple descriptions to articles — expand vocabulary while reading real Spanish.</div></div>
+          <div class="skill-card"><div class="skill-icon">✍️</div><div class="skill-name">Writing</div><div class="skill-desc">Guided writing tasks with prompts and structure. Practice emails, descriptions, opinions and stories.</div></div>
+        </div>
+      </div>
+
+      <!-- PRESENTATIONS -->
+      <div id="view-presentations" class="portal-view">
+        <div class="view-header"><h3>📽️ Lesson Presentations</h3><p>Review the slides from your classes.</p></div>
+        <div class="content-card">
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">📊</div><div><div class="lesson-row-title">Verbos Irregulares en Presente</div><div class="lesson-row-sub">Level A1–A2 · 12 slides · Added this week</div></div><div class="lesson-row-badge badge-done">View</div></div>
+          <div class="lesson-row" style="cursor:pointer" onclick="openLesson('ser-estar')"><div class="lesson-row-icon" style="background:#fff0ef">📊</div><div><div class="lesson-row-title">SER vs. ESTAR — The Complete Guide</div><div class="lesson-row-sub">Level A1–B1 · 7 slides</div></div><div class="lesson-row-badge badge-done">Open →</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#fffbe6">📊</div><div><div class="lesson-row-title">POR vs. PARA</div><div class="lesson-row-sub">Level A2–B1 · 10 slides</div></div><div class="lesson-row-badge badge-done">View</div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:var(--bg)">🔒</div><div><div class="lesson-row-title">El Subjuntivo — Introducción</div><div class="lesson-row-sub">Level B1 · Not yet assigned</div></div><div class="lesson-row-badge badge-next">Locked</div></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- end #portal-page -->
+
+
+<!-- ══════════════════════════════════
+     TEACHER PORTAL
+══════════════════════════════════ -->
+<div id="teacher-page" class="page">
+
+  <nav class="portal-nav" style="border-bottom:2px solid var(--teal)">
+    <div class="portal-nav-logo">Spanish<span>Portal</span> <span style="font-size:0.7rem;background:var(--teal);color:white;padding:0.15rem 0.5rem;border-radius:999px;margin-left:0.3rem;font-family:'Nunito',sans-serif;font-weight:800;">TEACHER</span></div>
+    <div class="portal-nav-right">
+      <div class="portal-nav-student">
+        <div class="portal-nav-avatar" style="background:var(--coral)">G</div>
+        <span>Gustavo</span>
+      </div>
+      <button class="portal-logout" onclick="doLogout()">Sign out</button>
+    </div>
+  </nav>
+
+  <div class="portal-body">
+
+    <!-- TEACHER SIDEBAR -->
+    <aside class="portal-sidebar">
+      <div class="sidebar-section-label">Teaching</div>
+      <button class="sidebar-btn active" onclick="showTeacherView('t-dashboard',this)"><span class="sb-icon">🏠</span> Dashboard</button>
+      <button class="sidebar-btn" onclick="showTeacherView('t-lessons',this)"><span class="sb-icon">📚</span> My Lessons</button>
+      <button class="sidebar-btn" onclick="showTeacherView('t-students',this)"><span class="sb-icon">👩‍🎓</span> Students</button>
+      <div class="sidebar-section-label">Content</div>
+      <button class="sidebar-btn" onclick="showTeacherView('t-grammar',this)"><span class="sb-icon">⚡</span> Grammar</button>
+      <button class="sidebar-btn" onclick="showTeacherView('t-vocabulary',this)"><span class="sb-icon">📝</span> Vocabulary</button>
+      <button class="sidebar-btn" onclick="showTeacherView('t-skills',this)"><span class="sb-icon">🎯</span> Skills</button>
+    </aside>
+
+    <main class="portal-content">
+
+      <!-- TEACHER DASHBOARD -->
+      <div id="view-t-dashboard" class="portal-view active">
+        <div class="portal-greeting">
+          <h2>¡Hola, Gustavo! 👋</h2>
+          <p>Here's your teaching overview for today.</p>
+        </div>
+        <div class="dashboard-stats">
+          <div class="dash-stat"><div class="dash-stat-num">1</div><div class="dash-stat-label">Lessons ready</div></div>
+          <div class="dash-stat"><div class="dash-stat-num">3</div><div class="dash-stat-label">Students</div></div>
+          <div class="dash-stat"><div class="dash-stat-num">5</div><div class="dash-stat-label">Sections built</div></div>
+          <div class="dash-stat"><div class="dash-stat-num" style="color:var(--teal)">Live</div><div class="dash-stat-label">Portal status</div></div>
+        </div>
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <div class="dash-card-title">📚 Recent lessons</div>
+            <div class="lesson-row" style="cursor:pointer" onclick="openLesson('ser-estar')">
+              <div class="lesson-row-icon" style="background:#e8f9f9">⚡</div>
+              <div><div class="lesson-row-title">SER vs. ESTAR</div><div class="lesson-row-sub">Grammar · A1–B1 · 5 components</div></div>
+              <div class="lesson-row-badge badge-done">Open →</div>
+            </div>
+            <div style="margin-top:1rem;padding:0.8rem;background:var(--teal-light);border-radius:10px;font-size:0.82rem;color:var(--teal-dark);font-weight:600;">
+              💡 Go to <strong>My Lessons</strong> to manage all lessons and control what students can see.
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-title">👩‍🎓 Your students</div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9">👤</div><div><div class="lesson-row-title">Ana García</div><div class="lesson-row-sub">B1 · Active</div></div><div class="lesson-row-badge badge-done">B1</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#fff0ef">👤</div><div><div class="lesson-row-title">John Smith</div><div class="lesson-row-sub">A2 · Active</div></div><div class="lesson-row-badge badge-progress">A2</div></div>
+            <div class="lesson-row"><div class="lesson-row-icon" style="background:#f3eeff">👤</div><div><div class="lesson-row-title">Marie Dupont</div><div class="lesson-row-sub">B2 · Active</div></div><div class="lesson-row-badge" style="background:#f3eeff;color:#6b21a8">B2</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MY LESSONS -->
+      <div id="view-t-lessons" class="portal-view">
+        <div class="view-header">
+          <h3>📚 My Lessons</h3>
+          <p>All your lessons — open them during class or toggle visibility for students.</p>
+        </div>
+
+        <!-- LESSON MANAGER CARD -->
+        <div class="content-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
+            <div class="content-card-title" style="margin-bottom:0">All lessons <span style="font-size:0.75rem;font-weight:700;background:var(--teal-light);color:var(--teal-dark);padding:0.2rem 0.6rem;border-radius:999px;margin-left:0.5rem;">1 ready</span></div>
+            <button class="btn-primary" style="padding:0.5rem 1.1rem;font-size:0.82rem;" onclick="alert('Coming soon — add new lesson from scratch!')">+ New lesson</button>
+          </div>
+
+          <!-- LESSON ROW: SER ESTAR -->
+          <div class="teacher-lesson-row" id="tl-ser-estar">
+            <div class="tl-left">
+              <div class="tl-icon" style="background:#e8f9f9">⚡</div>
+              <div class="tl-info">
+                <div class="tl-title">SER vs. ESTAR</div>
+                <div class="tl-meta">Grammar contrast · A1–B1</div>
+                <div class="tl-components">
+                  <span class="tl-chip">📊 Slides</span>
+                  <span class="tl-chip">📖 Theory</span>
+                  <span class="tl-chip">🃏 Flashcards</span>
+                  <span class="tl-chip">⚡ Exercises</span>
+                  <span class="tl-chip">🎧 Listening</span>
+                </div>
+              </div>
+            </div>
+            <div class="tl-right">
+              <button class="tl-open-btn" onclick="openLesson('ser-estar')">▶ Open lesson</button>
+              <div class="tl-toggle-wrap">
+                <span class="tl-toggle-label" id="tl-label-ser-estar">Visible to students</span>
+                <div class="tl-toggle active" id="tl-toggle-ser-estar" onclick="toggleLesson('ser-estar')">
+                  <div class="tl-toggle-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PLACEHOLDER ROWS — coming soon -->
+          <div class="teacher-lesson-row tl-empty">
+            <div class="tl-left">
+              <div class="tl-icon" style="background:#fffbe6">⚡</div>
+              <div class="tl-info">
+                <div class="tl-title" style="color:var(--muted)">POR vs. PARA</div>
+                <div class="tl-meta">Grammar contrast · A2–B1</div>
+                <div class="tl-components"><span class="tl-chip" style="opacity:0.5">Coming soon</span></div>
+              </div>
+            </div>
+            <div class="tl-right">
+              <button class="tl-open-btn" style="opacity:0.4;cursor:not-allowed">▶ Open lesson</button>
+              <div class="tl-toggle-wrap">
+                <span class="tl-toggle-label" style="color:var(--muted)">Not ready</span>
+                <div class="tl-toggle" style="opacity:0.3;pointer-events:none"><div class="tl-toggle-dot"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="teacher-lesson-row tl-empty">
+            <div class="tl-left">
+              <div class="tl-icon" style="background:#f3eeff">📝</div>
+              <div class="tl-info">
+                <div class="tl-title" style="color:var(--muted)">Present Tense — Regular Verbs</div>
+                <div class="tl-meta">Grammar · A0–A1</div>
+                <div class="tl-components"><span class="tl-chip" style="opacity:0.5">Coming soon</span></div>
+              </div>
+            </div>
+            <div class="tl-right">
+              <button class="tl-open-btn" style="opacity:0.4;cursor:not-allowed">▶ Open lesson</button>
+              <div class="tl-toggle-wrap">
+                <span class="tl-toggle-label" style="color:var(--muted)">Not ready</span>
+                <div class="tl-toggle" style="opacity:0.3;pointer-events:none"><div class="tl-toggle-dot"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="teacher-lesson-row tl-empty">
+            <div class="tl-left">
+              <div class="tl-icon" style="background:#fff0ef">🎧</div>
+              <div class="tl-info">
+                <div class="tl-title" style="color:var(--muted)">Vocabulario: Viajes</div>
+                <div class="tl-meta">Vocabulary · A2</div>
+                <div class="tl-components"><span class="tl-chip" style="opacity:0.5">Coming soon</span></div>
+              </div>
+            </div>
+            <div class="tl-right">
+              <button class="tl-open-btn" style="opacity:0.4;cursor:not-allowed">▶ Open lesson</button>
+              <div class="tl-toggle-wrap">
+                <span class="tl-toggle-label" style="color:var(--muted)">Not ready</span>
+                <div class="tl-toggle" style="opacity:0.3;pointer-events:none"><div class="tl-toggle-dot"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="padding:1rem 1.5rem;background:var(--yellow-light);border:1.5px solid var(--yellow);border-radius:var(--radius-sm);font-size:0.85rem;color:#7a5c00;line-height:1.7;">
+          💡 <strong>How it works:</strong> Toggle a lesson ON to make it visible in your students' portal. Toggle it OFF to hide it. Only you can see all lessons regardless of the toggle.
+        </div>
+      </div>
+
+      <!-- STUDENTS VIEW -->
+      <div id="view-t-students" class="portal-view">
+        <div class="view-header"><h3>👩‍🎓 Students</h3><p>Manage your students and their access.</p></div>
+        <div class="content-card">
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#e8f9f9;font-size:1.2rem">👤</div><div style="flex:1"><div class="lesson-row-title">Ana García</div><div class="lesson-row-sub">Level B1 · 12 lessons completed · Last active: today</div></div><div style="display:flex;gap:0.5rem"><span class="lesson-row-badge badge-done">B1</span></div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#fff0ef;font-size:1.2rem">👤</div><div style="flex:1"><div class="lesson-row-title">John Smith</div><div class="lesson-row-sub">Level A2 · 8 lessons completed · Last active: yesterday</div></div><div style="display:flex;gap:0.5rem"><span class="lesson-row-badge badge-progress">A2</span></div></div>
+          <div class="lesson-row"><div class="lesson-row-icon" style="background:#f3eeff;font-size:1.2rem">👤</div><div style="flex:1"><div class="lesson-row-title">Marie Dupont</div><div class="lesson-row-sub">Level B2 · 18 lessons completed · Last active: 2 days ago</div></div><div style="display:flex;gap:0.5rem"><span class="lesson-row-badge" style="background:#f3eeff;color:#6b21a8">B2</span></div></div>
+        </div>
+        <div style="padding:1rem 1.5rem;background:var(--teal-light);border:1.5px solid rgba(59,191,191,0.3);border-radius:var(--radius-sm);font-size:0.85rem;color:var(--teal-dark);line-height:1.7;">
+          💡 Students log in with the shared password: <strong>spanish2026</strong>. Individual passwords coming with Supabase.
+        </div>
+      </div>
+
+      <!-- TEACHER GRAMMAR -->
+      <div id="view-t-grammar" class="portal-view">
+        <div class="view-header"><h3>⚡ Grammar Lessons</h3><p>Open any lesson to use during class.</p></div>
+        <div class="contrast-grid">
+          <div class="contrast-card" onclick="openLesson('ser-estar')"><div class="contrast-title">SER vs. ESTAR</div><div class="contrast-sub">When to use each verb "to be"</div><div class="contrast-chips"><span class="contrast-chip" style="background:#e8f9f9;color:var(--teal-dark)">A1–B2</span><span class="contrast-chip" style="background:var(--teal-light);color:var(--teal-dark)">✓ Ready</span></div></div>
+          <div class="contrast-card" style="opacity:0.5"><div class="contrast-title">POR vs. PARA</div><div class="contrast-sub">Purpose, cause, exchange and more</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fffbe6;color:#8a6d00">A2–B1</span><span class="contrast-chip" style="background:var(--bg);color:var(--muted)">Coming soon</span></div></div>
+          <div class="contrast-card" style="opacity:0.5"><div class="contrast-title">SABER vs. CONOCER</div><div class="contrast-sub">Two ways to say "to know"</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fff0ef;color:var(--coral)">A2–B1</span><span class="contrast-chip" style="background:var(--bg);color:var(--muted)">Coming soon</span></div></div>
+          <div class="contrast-card" style="opacity:0.5"><div class="contrast-title">PERO vs. SINO</div><div class="contrast-sub">Two types of "but"</div><div class="contrast-chips"><span class="contrast-chip" style="background:#f3eeff;color:#6b21a8">B1–B2</span><span class="contrast-chip" style="background:var(--bg);color:var(--muted)">Coming soon</span></div></div>
+          <div class="contrast-card" style="opacity:0.5"><div class="contrast-title">MUY vs. MUCHO</div><div class="contrast-sub">Intensifiers</div><div class="contrast-chips"><span class="contrast-chip" style="background:#e8f9f9;color:var(--teal-dark)">A1–A2</span><span class="contrast-chip" style="background:var(--bg);color:var(--muted)">Coming soon</span></div></div>
+          <div class="contrast-card" style="opacity:0.5"><div class="contrast-title">PORQUE vs. POR QUÉ</div><div class="contrast-sub">Because / Why</div><div class="contrast-chips"><span class="contrast-chip" style="background:#fffbe6;color:#8a6d00">A2–B1</span><span class="contrast-chip" style="background:var(--bg);color:var(--muted)">Coming soon</span></div></div>
+        </div>
+      </div>
+
+      <!-- TEACHER VOCABULARY -->
+      <div id="view-t-vocabulary" class="portal-view">
+        <div class="view-header"><h3>📝 Vocabulary Lessons</h3><p>Vocabulary sets — open during class or assign to students.</p></div>
+        <div class="vocab-topics">
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">✈️</div><div class="vocab-topic-name">Travel & Tourism</div><div class="vocab-topic-count">Coming soon</div></div>
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">🏠</div><div class="vocab-topic-name">Home & Living</div><div class="vocab-topic-count">Coming soon</div></div>
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">💼</div><div class="vocab-topic-name">Work & Career</div><div class="vocab-topic-count">Coming soon</div></div>
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">🛒</div><div class="vocab-topic-name">Shopping</div><div class="vocab-topic-count">Coming soon</div></div>
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">🏥</div><div class="vocab-topic-name">Health & Body</div><div class="vocab-topic-count">Coming soon</div></div>
+          <div class="vocab-topic-card" style="opacity:0.5"><div class="vocab-topic-icon">🎭</div><div class="vocab-topic-name">Free Time</div><div class="vocab-topic-count">Coming soon</div></div>
+        </div>
+      </div>
+
+      <!-- TEACHER SKILLS -->
+      <div id="view-t-skills" class="portal-view">
+        <div class="view-header"><h3>🎯 Skills Lessons</h3><p>Listening, speaking, reading and writing activities.</p></div>
+        <div class="skills-grid">
+          <div class="skill-card" style="opacity:0.5"><div class="skill-icon">🎧</div><div class="skill-name">Listening</div><div class="skill-desc">Dialogues and comprehension exercises. Coming soon.</div></div>
+          <div class="skill-card" style="opacity:0.5"><div class="skill-icon">🗣️</div><div class="skill-name">Speaking</div><div class="skill-desc">Conversation prompts and role-plays. Coming soon.</div></div>
+          <div class="skill-card" style="opacity:0.5"><div class="skill-icon">📖</div><div class="skill-name">Reading</div><div class="skill-desc">Graded texts for all levels. Coming soon.</div></div>
+          <div class="skill-card" style="opacity:0.5"><div class="skill-icon">✍️</div><div class="skill-name">Writing</div><div class="skill-desc">Guided writing tasks with prompts. Coming soon.</div></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div><!-- end #teacher-page -->
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="modal-login" onclick="if(event.target===this)closeLogin()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <div class="modal-logo">
+      <div class="modal-logo-mark">🌐</div>
+      <div class="modal-title">Welcome back</div>
+      <div class="modal-sub">Sign in to your portal</div>
+    </div>
+    <div class="tab-switch">
+      <button class="active" id="tab-student" onclick="setLoginTab('student')">🎓 Student</button>
+      <button id="tab-teacher" onclick="setLoginTab('teacher')">👩‍🏫 Teacher</button>
+    </div>
+    <div id="student-fields">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" id="login-name" placeholder="e.g. Sarah">
+      </div>
+    </div>
+    <div id="teacher-fields" style="display:none">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="your@email.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="login-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div class="login-error" id="login-error">Incorrect credentials. Please try again.</div>
+    <button class="btn-login" onclick="doLogin()">Sign in →</button>
+    <div class="demo-hint" id="student-hint">
+      Student password: <strong>spanish2026</strong>
+    </div>
+    <div class="demo-hint" id="teacher-hint" style="display:none">
+      Teacher demo: <strong>profe@spanishportal.com</strong> / <strong>profe2026</strong>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ── DATA ──
+const STUDENTS = {
+  'ana':   { name:'Ana García',   level:'B1', lessons:12, streak:7,  progress:'78%', color:'#3BBFBF', initials:'A' },
+  'john':  { name:'John Smith',   level:'A2', lessons:8,  streak:5,  progress:'62%', color:'#E8524A', initials:'J' },
+  'marie': { name:'Marie Dupont', level:'B2', lessons:18, streak:14, progress:'45%', color:'#a855f7', initials:'M' },
+};
+
+const PORTAL_PASSWORD  = 'spanish2026';
+const TEACHER_EMAIL    = 'profe@spanishportal.com';
+const TEACHER_PASSWORD = 'profe2026';
+
+let currentStudent = null;
+let loginRole = 'student';
+let lessonVisibility = { 'ser-estar': true };
+
+// ── PAGE SWITCH ──
+function showPublic() {
+  document.getElementById('public-page').classList.add('active');
+  document.getElementById('portal-page').classList.remove('active');
+  document.getElementById('teacher-page').classList.remove('active');
+}
+function showPortal(student) {
+  document.getElementById('public-page').classList.remove('active');
+  document.getElementById('portal-page').classList.add('active');
+  document.getElementById('teacher-page').classList.remove('active');
+  const s = STUDENTS[student] || { name:student, level:'A1', lessons:0, streak:0, progress:'0%', color:'var(--teal)', initials:student[0].toUpperCase() };
+  document.getElementById('portal-name').textContent = s.name;
+  document.getElementById('greeting-name').textContent = s.name.split(' ')[0];
+  const av = document.getElementById('portal-avatar');
+  av.textContent = s.initials; av.style.background = s.color;
+  document.getElementById('stat-level').textContent = s.level;
+  document.getElementById('stat-lessons').textContent = s.lessons;
+  document.getElementById('stat-streak').textContent = s.streak;
+  document.getElementById('stat-progress').textContent = s.progress;
+  showView('dashboard', document.querySelector('.sidebar-btn'));
+}
+function showTeacherPortal() {
+  document.getElementById('public-page').classList.remove('active');
+  document.getElementById('portal-page').classList.remove('active');
+  document.getElementById('teacher-page').classList.add('active');
+  showTeacherView('t-dashboard', document.querySelector('#teacher-page .sidebar-btn'));
+}
+
+// ── LOGIN TABS ──
+function setLoginTab(role) {
+  loginRole = role;
+  document.getElementById('tab-student').classList.toggle('active', role==='student');
+  document.getElementById('tab-teacher').classList.toggle('active', role==='teacher');
+  document.getElementById('student-fields').style.display = role==='student' ? 'block' : 'none';
+  document.getElementById('teacher-fields').style.display = role==='teacher' ? 'block' : 'none';
+  document.getElementById('student-hint').style.display  = role==='student' ? 'block' : 'none';
+  document.getElementById('teacher-hint').style.display  = role==='teacher' ? 'block' : 'none';
+  document.getElementById('login-error').style.display = 'none';
+}
+
+// ── LOGIN ──
+function openLogin(e) {
+  if (e) e.preventDefault();
+  document.getElementById('modal-login').style.display = 'flex';
+  setTimeout(()=>document.getElementById('login-name').focus(), 100);
+}
+function closeLogin() {
+  document.getElementById('modal-login').style.display = 'none';
+  document.getElementById('login-error').style.display = 'none';
+}
+function doLogin() {
+  const pwd = document.getElementById('login-password').value;
+  const err = document.getElementById('login-error');
+  err.style.display = 'none';
+
+  if (loginRole === 'teacher') {
+    const email = document.getElementById('login-email').value.trim();
+    if (email === TEACHER_EMAIL && pwd === TEACHER_PASSWORD) {
+      closeLogin(); showTeacherPortal(); return;
+    }
+    err.textContent = 'Incorrect teacher credentials.';
+    err.style.display = 'block'; return;
+  }
+
+  // Student
+  const name = document.getElementById('login-name').value.trim();
+  if (!name) { err.textContent='Please enter your name.'; err.style.display='block'; return; }
+  if (pwd !== PORTAL_PASSWORD) { err.textContent='Incorrect password. Check with your teacher.'; err.style.display='block'; return; }
+  const key = name.toLowerCase().split(' ')[0];
+  currentStudent = STUDENTS[key] ? key : 'custom';
+  if (!STUDENTS[key]) STUDENTS['custom'] = { name, level:'A1', lessons:0, streak:0, progress:'0%', color:'var(--teal)', initials:name[0].toUpperCase() };
+  closeLogin(); showPortal(currentStudent);
+}
+function doLogout() {
+  currentStudent = null; showPublic(); window.scrollTo(0,0);
+}
+
+// ── STUDENT PORTAL VIEWS ──
+function showView(view, btn) {
+  document.querySelectorAll('#portal-page .portal-view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('#portal-page .sidebar-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + view).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (view === 'messages') document.getElementById('msg-badge').style.display = 'none';
+}
+
+// ── TEACHER PORTAL VIEWS ──
+function showTeacherView(view, btn) {
+  document.querySelectorAll('#teacher-page .portal-view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('#teacher-page .sidebar-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-' + view).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ── LESSON VISIBILITY TOGGLE ──
+function toggleLesson(id) {
+  lessonVisibility[id] = !lessonVisibility[id];
+  const toggle = document.getElementById('tl-toggle-' + id);
+  const label  = document.getElementById('tl-label-' + id);
+  toggle.classList.toggle('active', lessonVisibility[id]);
+  label.textContent = lessonVisibility[id] ? 'Visible to students' : 'Hidden from students';
+  label.style.color = lessonVisibility[id] ? 'var(--teal-dark)' : 'var(--muted)';
+}
+
+// ── SCROLL REVEAL (public only) ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeLogin(); closeLesson(); }
+  if (lessonOpen) {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft')  prevSlide();
+  }
+});
+
+// ── LESSON VIEWER ──
+let lessonOpen = false;
+let currentSlide = 0;
+let currentTab = 'slides';
+let flipped = {};
+let quizAnswers = {};
+
+function openLesson(id) {
+  const lesson = LESSONS[id];
+  if (!lesson) return;
+  lessonOpen = true;
+  currentSlide = 0;
+  flipped = {};
+  quizAnswers = {};
+  document.getElementById('lesson-modal').style.display = 'flex';
+  renderLesson(lesson);
+}
+
+function closeLesson() {
+  lessonOpen = false;
+  document.getElementById('lesson-modal').style.display = 'none';
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('[data-tab="'+tab+'"]').classList.add('active');
+  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+
+// ── SLIDES ──
+function renderSlides(slides) {
+  const wrap = document.getElementById('slides-wrap');
+  const thumbs = document.getElementById('slides-thumbs');
+  wrap.innerHTML = '';
+  thumbs.innerHTML = '';
+  slides.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'slide' + (i===0?' active':'');
+    el.innerHTML = renderSlideContent(s);
+    wrap.appendChild(el);
+
+    const th = document.createElement('div');
+    th.className = 'slide-thumb' + (i===0?' active':'');
+    th.textContent = i+1;
+    th.onclick = () => goSlide(i);
+    thumbs.appendChild(th);
+  });
+  updateSlideNav(slides.length);
+}
+
+function renderSlideContent(s) {
+  if (s.type === 'cover') return `
+    <div class="slide-cover" style="background:linear-gradient(135deg,${s.color||'var(--teal)'} 0%,${s.color2||'var(--teal-dark)'} 100%)">
+      <div class="slide-cover-level">${s.level||''}</div>
+      <div class="slide-cover-title">${s.title}</div>
+      <div class="slide-cover-sub">${s.sub||''}</div>
+    </div>`;
+  if (s.type === 'two-col') return `
+    <div class="slide-two-col">
+      <div class="slide-heading">${s.title}</div>
+      <div class="slide-cols">
+        <div class="slide-col" style="border-top:4px solid ${s.col1color||'var(--teal)'}">
+          <div class="slide-col-title">${s.col1title}</div>
+          ${s.col1items.map(it=>`<div class="slide-col-item"><span class="slide-col-bullet" style="background:${s.col1color||'var(--teal)'}"></span>${it}</div>`).join('')}
+        </div>
+        <div class="slide-col" style="border-top:4px solid ${s.col2color||'var(--coral)'}">
+          <div class="slide-col-title">${s.col2title}</div>
+          ${s.col2items.map(it=>`<div class="slide-col-item"><span class="slide-col-bullet" style="background:${s.col2color||'var(--coral)'}"></span>${it}</div>`).join('')}
+        </div>
+      </div>
+    </div>`;
+  if (s.type === 'examples') return `
+    <div class="slide-examples-wrap">
+      <div class="slide-heading">${s.title}</div>
+      <div class="slide-examples">
+        ${s.examples.map(ex=>`
+          <div class="slide-example-card">
+            <div class="slide-example-es">${ex.es}</div>
+            <div class="slide-example-en">${ex.en}</div>
+            ${ex.note?`<div class="slide-example-note">${ex.note}</div>`:''}
+          </div>`).join('')}
+      </div>
+    </div>`;
+  if (s.type === 'rule') return `
+    <div class="slide-rule-wrap">
+      <div class="slide-heading">${s.title}</div>
+      <div class="slide-rules">
+        ${s.rules.map(r=>`
+          <div class="slide-rule-row">
+            <div class="slide-rule-icon">${r.icon}</div>
+            <div><div class="slide-rule-title">${r.title}</div><div class="slide-rule-desc">${r.desc}</div></div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  if (s.type === 'end') return `
+    <div class="slide-cover" style="background:linear-gradient(135deg,#1a1a2e 0%,#2a2a4e 100%)">
+      <div class="slide-cover-title" style="font-size:2.5rem">${s.title}</div>
+      <div class="slide-cover-sub" style="opacity:0.7">${s.sub||''}</div>
+    </div>`;
+  return `<div style="padding:2rem"><h3>${s.title}</h3></div>`;
+}
+
+function goSlide(i) {
+  const slides = document.querySelectorAll('#slides-wrap .slide');
+  const thumbs = document.querySelectorAll('#slides-thumbs .slide-thumb');
+  slides[currentSlide].classList.remove('active');
+  thumbs[currentSlide].classList.remove('active');
+  currentSlide = Math.max(0, Math.min(i, slides.length-1));
+  slides[currentSlide].classList.add('active');
+  thumbs[currentSlide].classList.add('active');
+  updateSlideNav(slides.length);
+}
+function nextSlide() { goSlide(currentSlide+1); }
+function prevSlide() { goSlide(currentSlide-1); }
+function updateSlideNav(total) {
+  document.getElementById('slide-counter').textContent = (currentSlide+1) + ' / ' + total;
+  document.getElementById('btn-prev').disabled = currentSlide === 0;
+  document.getElementById('btn-next').disabled = currentSlide === total-1;
+}
+
+// ── FLASHCARDS ──
+function renderFlashcards(cards) {
+  const wrap = document.getElementById('flashcards-wrap');
+  wrap.innerHTML = cards.map((c,i) => `
+    <div class="flashcard ${flipped[i]?'flipped':''}" onclick="flipCard(${i})">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="flashcard-word">${c.es}</div>
+          <div class="flashcard-hint">Click to reveal</div>
+        </div>
+        <div class="flashcard-back">
+          <div class="flashcard-word" style="color:var(--teal)">${c.en}</div>
+          <div class="flashcard-example">${c.example||''}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function flipCard(i) {
+  flipped[i] = !flipped[i];
+  document.querySelectorAll('.flashcard')[i].classList.toggle('flipped');
+}
+
+// ── QUIZ ──
+function renderQuiz(questions) {
+  const wrap = document.getElementById('quiz-wrap');
+  wrap.innerHTML = questions.map((q,qi) => `
+    <div class="quiz-question" id="qq-${qi}">
+      <div class="quiz-q-text"><span class="quiz-q-num">${qi+1}</span>${q.q}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt,oi) => `
+          <button class="quiz-opt" onclick="selectOpt(${qi},${oi},${q.correct})">${opt}</button>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback" id="qf-${qi}" style="display:none"></div>
+    </div>`).join('') +
+    `<button class="btn-primary" style="margin-top:1rem" onclick="checkQuiz(${questions.length})">Check answers →</button>
+     <div id="quiz-score" style="display:none;margin-top:1rem"></div>`;
+}
+function selectOpt(qi, oi, correct) {
+  if (quizAnswers[qi] !== undefined) return;
+  quizAnswers[qi] = oi;
+  document.querySelectorAll(`#qq-${qi} .quiz-opt`).forEach((btn,i) => {
+    btn.disabled = true;
+    if (i === correct) btn.classList.add('correct');
+    if (i === oi && oi !== correct) btn.classList.add('wrong');
+  });
+  const fb = document.getElementById('qf-'+qi);
+  fb.style.display = 'block';
+  fb.className = 'quiz-feedback ' + (oi===correct?'fb-correct':'fb-wrong');
+  fb.textContent = oi===correct ? '✓ Correct!' : '✗ Not quite — the correct answer is highlighted in green.';
+}
+function checkQuiz(total) {
+  const score = document.getElementById('quiz-score');
+  const correct = Object.values(quizAnswers).length;
+  score.style.display = 'block';
+  score.innerHTML = `<div class="quiz-result">You answered <strong>${correct}/${total}</strong> questions${correct===total?' 🎉 Perfect!':correct>=total/2?' — good work! Review the ones you missed.':' — keep practising!'}</div>`;
+}
+
+// ── THEORY ──
+function renderTheory(sections) {
+  const wrap = document.getElementById('theory-wrap');
+  wrap.innerHTML = sections.map(s => `
+    <div class="theory-section">
+      <div class="theory-title">${s.title}</div>
+      <div class="theory-body">${s.body}</div>
+      ${s.table ? renderTable(s.table) : ''}
+      ${s.examples ? `<div class="theory-examples">${s.examples.map(e=>`<div class="theory-example"><span class="theory-ex-es">${e.es}</span><span class="theory-ex-en">${e.en}</span></div>`).join('')}</div>` : ''}
+    </div>`).join('');
+}
+function renderTable(t) {
+  return `<table class="theory-table">
+    <thead><tr>${t.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${t.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+  </table>`;
+}
+
+// ── LISTENING ──
+function renderListening(data) {
+  const wrap = document.getElementById('listening-wrap');
+  wrap.innerHTML = `
+    <div class="listening-card">
+      <div class="listening-title">${data.title}</div>
+      <div class="listening-context">${data.context}</div>
+      <div class="listening-player">
+        <div class="listening-icon">🎧</div>
+        <div class="listening-info">
+          <div class="listening-label">${data.audio_label}</div>
+          <div class="listening-sub">Click to play · ${data.duration}</div>
+        </div>
+        <button class="listening-play" onclick="this.textContent=this.textContent==='▶'?'⏸':'▶'">▶</button>
+      </div>
+      <div class="listening-transcript-toggle" onclick="document.getElementById('transcript').style.display=document.getElementById('transcript').style.display==='none'?'block':'none'">📄 Show transcript</div>
+      <div id="transcript" class="listening-transcript" style="display:none">${data.transcript}</div>
+    </div>
+    <div class="theory-title" style="margin-top:1.5rem">Comprehension questions</div>
+    ${data.questions.map((q,qi) => `
+      <div class="quiz-question" id="lq-${qi}">
+        <div class="quiz-q-text"><span class="quiz-q-num">${qi+1}</span>${q.q}</div>
+        <div class="quiz-options">
+          ${q.options.map((opt,oi)=>`<button class="quiz-opt" onclick="selectListOpt(${qi},${oi},${q.correct})">${opt}</button>`).join('')}
+        </div>
+        <div class="quiz-feedback" id="lf-${qi}" style="display:none"></div>
+      </div>`).join('')}`;
+}
+function selectListOpt(qi, oi, correct) {
+  if (document.querySelector(`#lq-${qi} .quiz-opt.correct`)) return;
+  document.querySelectorAll(`#lq-${qi} .quiz-opt`).forEach((btn,i) => {
+    btn.disabled = true;
+    if (i===correct) btn.classList.add('correct');
+    if (i===oi && oi!==correct) btn.classList.add('wrong');
+  });
+  const fb = document.getElementById('lf-'+qi);
+  fb.style.display='block';
+  fb.className='quiz-feedback '+(oi===correct?'fb-correct':'fb-wrong');
+  fb.textContent = oi===correct?'✓ Correct!':'✗ Not quite — the correct answer is highlighted.';
+}
+
+// ── RENDER FULL LESSON ──
+function renderLesson(lesson) {
+  document.getElementById('lesson-modal-title').textContent = lesson.title;
+  document.getElementById('lesson-modal-level').textContent = lesson.level;
+  switchTab('slides');
+  renderSlides(lesson.slides);
+  renderTheory(lesson.theory);
+  renderFlashcards(lesson.flashcards);
+  renderQuiz(lesson.quiz);
+  renderListening(lesson.listening);
+}
+
+// ══════════════════════
+// LESSON DATA
+// ══════════════════════
+const LESSONS = {
+  'ser-estar': {
+    title: 'SER vs. ESTAR',
+    level: 'A1–B1',
+    slides: [
+      { type:'cover', title:'SER vs. ESTAR', sub:'Two verbs. One meaning. Infinite confusion.', level:'A1–B1', color:'#3BBFBF', color2:'#2a9d9d' },
+      { type:'rule', title:'🤔 The big question: which one?',
+        rules:[
+          { icon:'🏷️', title:'SER = permanent / identity', desc:'Who you are, where you\'re from, what something is made of, time & dates.' },
+          { icon:'📍', title:'ESTAR = temporary / state', desc:'How you feel, where something is located right now, what\'s happening.' },
+          { icon:'💡', title:'The trick', desc:'Ask yourself: is this a permanent quality (SER) or a temporary state (ESTAR)?' }
+        ]},
+      { type:'two-col', title:'SER vs. ESTAR at a glance',
+        col1title:'SER — Identity & permanent', col1color:'#3BBFBF',
+        col1items:['Nationality: Soy español', 'Profession: Es médico', 'Origin: Es de México', 'Material: Es de madera', 'Permanent traits: Es inteligente', 'Time / dates: Son las 3'],
+        col2title:'ESTAR — States & location', col2color:'#E8524A',
+        col2items:['Location: Está en Madrid', 'Emotions: Estoy contento', 'Health: Está enfermo', 'Temporary state: Está cansada', 'Ongoing action: Estamos comiendo', 'Result of change: La puerta está abierta']},
+      { type:'examples', title:'SER — Real examples',
+        examples:[
+          { es:'Soy profesora de español.', en:'I am a Spanish teacher.', note:'Profession → SER' },
+          { es:'Ella es de Argentina.', en:'She is from Argentina.', note:'Origin → SER' },
+          { es:'El libro es interesante.', en:'The book is interesting.', note:'Inherent quality → SER' },
+          { es:'Son las nueve de la mañana.', en:'It is 9 in the morning.', note:'Time → SER' }
+        ]},
+      { type:'examples', title:'ESTAR — Real examples',
+        examples:[
+          { es:'Estoy muy cansado hoy.', en:'I am very tired today.', note:'Temporary state → ESTAR' },
+          { es:'El café está frío.', en:'The coffee is cold.', note:'Current condition → ESTAR' },
+          { es:'¿Dónde está el banco?', en:'Where is the bank?', note:'Location → ESTAR' },
+          { es:'Estamos de vacaciones.', en:'We are on holiday.', note:'Temporary situation → ESTAR' }
+        ]},
+      { type:'rule', title:'⚠️ Tricky cases — same adjective, different meaning!',
+        rules:[
+          { icon:'😊', title:'Es aburrido vs. Está aburrido', desc:'Es aburrido = He IS boring (his personality). Está aburrido = He IS bored (right now).' },
+          { icon:'🤒', title:'Es malo vs. Está malo', desc:'Es malo = He is bad/evil. Está malo = He is ill / the food is off.' },
+          { icon:'💀', title:'Es muerto vs. Está muerto', desc:'Es muerto ✗ (not used). Está muerto = He is dead (state).' }
+        ]},
+      { type:'end', title:'¡Muy bien! 🎉', sub:'Now practise with the exercises below.' }
+    ],
+    theory: [
+      { title:'When to use SER',
+        body:'<strong>SER</strong> is used for things that define something fundamentally — its identity, origin, material, or permanent characteristics.',
+        table: {
+          headers:['Use', 'Example', 'English'],
+          rows:[
+            ['Nationality','Soy español.','I am Spanish.'],
+            ['Profession','Es médico.','He is a doctor.'],
+            ['Origin','Es de Colombia.','She is from Colombia.'],
+            ['Time / Date','Son las tres.','It is three o\'clock.'],
+            ['Material','La mesa es de madera.','The table is made of wood.'],
+            ['Inherent trait','El cielo es azul.','The sky is blue.']
+          ]
+        }
+      },
+      { title:'When to use ESTAR',
+        body:'<strong>ESTAR</strong> is used for things that are changeable — location, emotions, health, or temporary conditions.',
+        table: {
+          headers:['Use', 'Example', 'English'],
+          rows:[
+            ['Location','Estoy en casa.','I am at home.'],
+            ['Emotion','Estás triste hoy.','You are sad today.'],
+            ['Health','Está enfermo.','He is ill.'],
+            ['Temporary state','El café está frío.','The coffee is cold.'],
+            ['Ongoing action','Estamos comiendo.','We are eating.'],
+            ['Result of change','La ventana está abierta.','The window is open.']
+          ]
+        }
+      },
+      { title:'Watch out — the tricky adjectives',
+        body:'Some adjectives change meaning completely depending on which verb you use:',
+        examples:[
+          { es:'Es aburrido', en:'He is boring (always)' },
+          { es:'Está aburrido', en:'He is bored (right now)' },
+          { es:'Es listo', en:'He is clever' },
+          { es:'Está listo', en:'He is ready' },
+          { es:'Es malo', en:'He is bad/evil' },
+          { es:'Está malo', en:'He is ill' },
+          { es:'Es seguro', en:'It is safe' },
+          { es:'Está seguro', en:'He is sure/certain' }
+        ]
+      }
+    ],
+    flashcards: [
+      { es:'Soy de España.', en:'I am from Spain.', example:'Origin → always SER' },
+      { es:'Estoy cansado.', en:'I am tired.', example:'Temporary state → ESTAR' },
+      { es:'Es médico.', en:'He is a doctor.', example:'Profession → SER' },
+      { es:'Está en Madrid.', en:'She is in Madrid.', example:'Location → ESTAR' },
+      { es:'Son las dos.', en:'It is two o\'clock.', example:'Time → SER' },
+      { es:'Estamos contentos.', en:'We are happy.', example:'Emotion → ESTAR' },
+      { es:'Es inteligente.', en:'She is intelligent.', example:'Inherent trait → SER' },
+      { es:'El café está frío.', en:'The coffee is cold.', example:'Current condition → ESTAR' },
+      { es:'Es de madera.', en:'It is made of wood.', example:'Material → SER' },
+      { es:'Estáis de vacaciones.', en:'You (all) are on holiday.', example:'Temporary situation → ESTAR' }
+    ],
+    quiz: [
+      { q:'Mi hermana ___ profesora de inglés.', options:['es','está','son','están'], correct:0 },
+      { q:'¿Dónde ___ el supermercado?', options:['es','eres','está','estás'], correct:2 },
+      { q:'Hoy ___ muy cansada porque trabajé mucho.', options:['soy','estoy','es','está'], correct:1 },
+      { q:'El edificio ___ construido en 1920.', options:['está','estaba','fue','es'], correct:2 },
+      { q:'La sopa ___ fría — ¡caliéntala!', options:['es','ser','está','estás'], correct:2 },
+      { q:'Mis padres ___ de México.', options:['están','estamos','son','somos'], correct:2 },
+      { q:'"He is boring" = ___ aburrido', options:['está','estoy','es','eres'], correct:2 },
+      { q:'"He is bored" = ___ aburrido', options:['es','eres','estamos','está'], correct:3 },
+      { q:'¿___ lista para el examen? (Are you ready?)', options:['Eres','Estás','Estoy','Es'], correct:1 },
+      { q:'El concierto ___ a las ocho de la noche.', options:['está','estamos','es','eres'], correct:2 }
+    ],
+    listening: {
+      title:'Diálogo: En la cafetería',
+      context:'Listen to Ana and Carlos talking in a café in Madrid. Focus on how they use SER and ESTAR.',
+      audio_label:'Ana y Carlos — En la cafetería · Madrid',
+      duration:'1:45 min',
+      transcript:`
+        <p><strong>Carlos:</strong> Hola Ana, ¿cómo estás?</p>
+        <p><strong>Ana:</strong> ¡Hola! <strong>Estoy</strong> muy bien, gracias. Un poco cansada, pero bien. ¿Y tú?</p>
+        <p><strong>Carlos:</strong> Yo también <strong>estoy</strong> bien. Oye, ¿<strong>eres</strong> de Madrid?</p>
+        <p><strong>Ana:</strong> No, no. <strong>Soy</strong> de Sevilla, pero <strong>estoy</strong> aquí por trabajo.</p>
+        <p><strong>Carlos:</strong> ¡Qué interesante! ¿A qué te dedicas?</p>
+        <p><strong>Ana:</strong> <strong>Soy</strong> diseñadora gráfica. Trabajo para una empresa que <strong>está</strong> en el centro.</p>
+        <p><strong>Carlos:</strong> ¡Genial! Este café, ¿<strong>está</strong> rico, verdad?</p>
+        <p><strong>Ana:</strong> Sí, aunque <strong>está</strong> un poco frío. Pero la terraza <strong>es</strong> muy bonita.</p>
+        <p><strong>Carlos:</strong> Totalmente. Y el barrio <strong>es</strong> muy tranquilo también.</p>
+      `,
+      questions:[
+        { q:'Where is Ana from?', options:['Madrid','Sevilla','Barcelona','Valencia'], correct:1 },
+        { q:'Why is Ana in Madrid?', options:['She lives there','For holidays','For work','She studies there'], correct:2 },
+        { q:'What is Ana\'s profession?', options:['Teacher','Doctor','Graphic designer','Engineer'], correct:2 },
+        { q:'How does Ana describe the coffee?', options:['Hot and delicious','A bit cold','Too strong','Perfect'], correct:1 }
+      ]
+    }
+  }
+};
+</script>
+
+<!-- ══════════════════════════════════
+     LESSON MODAL
+══════════════════════════════════ -->
+<div id="lesson-modal" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(26,26,46,0.7);backdrop-filter:blur(8px);align-items:stretch;justify-content:center;overflow:hidden;padding:1rem;">
+  <div style="background:var(--bg);border-radius:var(--radius);width:100%;max-width:900px;margin:auto;display:flex;flex-direction:column;max-height:calc(100vh - 2rem);overflow:hidden;box-shadow:var(--shadow-lg);">
+
+    <!-- HEADER -->
+    <div style="background:white;border-bottom:1px solid var(--border);padding:1rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-shrink:0;">
+      <div style="flex:1;">
+        <div id="lesson-modal-level" style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal-dark);margin-bottom:0.2rem;"></div>
+        <div id="lesson-modal-title" style="font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;"></div>
+      </div>
+      <button onclick="closeLesson()" style="width:36px;height:36px;border-radius:8px;background:var(--bg);border:1px solid var(--border);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;color:var(--muted);">✕</button>
+    </div>
+
+    <!-- TABS -->
+    <div style="background:white;border-bottom:1px solid var(--border);display:flex;gap:0;flex-shrink:0;overflow-x:auto;">
+      <button class="lesson-tab active" data-tab="slides"    onclick="switchTab('slides')"       style="flex:1;padding:0.9rem 0.5rem;border:none;border-bottom:3px solid transparent;background:none;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;">📊 Slides</button>
+      <button class="lesson-tab"        data-tab="theory"    onclick="switchTab('theory')"       style="flex:1;padding:0.9rem 0.5rem;border:none;border-bottom:3px solid transparent;background:none;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;">📖 Theory</button>
+      <button class="lesson-tab"        data-tab="flashcards" onclick="switchTab('flashcards')"  style="flex:1;padding:0.9rem 0.5rem;border:none;border-bottom:3px solid transparent;background:none;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;">🃏 Flashcards</button>
+      <button class="lesson-tab"        data-tab="quiz"      onclick="switchTab('quiz')"         style="flex:1;padding:0.9rem 0.5rem;border:none;border-bottom:3px solid transparent;background:none;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;">⚡ Exercises</button>
+      <button class="lesson-tab"        data-tab="listening" onclick="switchTab('listening')"    style="flex:1;padding:0.9rem 0.5rem;border:none;border-bottom:3px solid transparent;background:none;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;">🎧 Listening</button>
+    </div>
+
+    <!-- PANELS -->
+    <div style="flex:1;overflow-y:auto;">
+
+      <!-- SLIDES -->
+      <div id="panel-slides" class="lesson-panel active" style="height:100%;display:flex;flex-direction:column;">
+        <div id="slides-wrap" style="flex:1;position:relative;min-height:400px;background:#1a1a2e;overflow:hidden;"></div>
+        <div style="background:white;border-top:1px solid var(--border);padding:0.8rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-shrink:0;">
+          <button id="btn-prev" onclick="prevSlide()" style="width:36px;height:36px;border-radius:8px;background:var(--bg);border:1px solid var(--border);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">‹</button>
+          <div id="slides-thumbs" style="display:flex;gap:0.4rem;flex:1;overflow-x:auto;padding:0.2rem 0;"></div>
+          <span id="slide-counter" style="font-size:0.8rem;font-weight:700;color:var(--muted);white-space:nowrap;"></span>
+          <button id="btn-next" onclick="nextSlide()" style="width:36px;height:36px;border-radius:8px;background:var(--bg);border:1px solid var(--border);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">›</button>
+        </div>
+      </div>
+
+      <!-- THEORY -->
+      <div id="panel-theory" class="lesson-panel" style="padding:1.5rem;display:none;">
+        <div id="theory-wrap"></div>
+      </div>
+
+      <!-- FLASHCARDS -->
+      <div id="panel-flashcards" class="lesson-panel" style="padding:1.5rem;display:none;">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">Click each card to reveal the translation and an example.</p>
+        <div id="flashcards-wrap" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;"></div>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="panel-quiz" class="lesson-panel" style="padding:1.5rem;display:none;">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem;">Choose the correct form for each sentence.</p>
+        <div id="quiz-wrap"></div>
+      </div>
+
+      <!-- LISTENING -->
+      <div id="panel-listening" class="lesson-panel" style="padding:1.5rem;display:none;">
+        <div id="listening-wrap"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+/* LESSON TABS */
+.lesson-tab.active { color:var(--teal) !important; border-bottom-color:var(--teal) !important; }
+.lesson-panel { display:none; }
+.lesson-panel.active { display:block; }
+#panel-slides.active { display:flex !important; }
+
+/* SLIDES */
+.slide { display:none; width:100%; height:100%; position:absolute; inset:0; animation:fadeUp 0.3s ease; }
+.slide.active { display:flex; align-items:center; justify-content:center; }
+.slide-cover { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3rem; }
+.slide-cover-level { font-size:0.78rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.7); margin-bottom:1rem; }
+.slide-cover-title { font-family:'Fraunces',serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:900; color:white; margin-bottom:1rem; }
+.slide-cover-sub { font-size:1.1rem; color:rgba(255,255,255,0.8); }
+.slide-heading { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:800; color:white; margin-bottom:1.5rem; text-align:center; }
+.slide-two-col { width:100%; padding:2rem; color:white; }
+.slide-cols { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1rem; }
+.slide-col { background:rgba(255,255,255,0.07); border-radius:12px; padding:1.2rem; }
+.slide-col-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; color:white; margin-bottom:1rem; }
+.slide-col-item { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.82rem; color:rgba(255,255,255,0.85); margin-bottom:0.5rem; line-height:1.4; }
+.slide-col-bullet { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:4px; }
+.slide-examples-wrap { width:100%; padding:2rem; color:white; overflow:auto; max-height:100%; }
+.slide-examples { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+.slide-example-card { background:rgba(255,255,255,0.07); border-radius:12px; padding:1.1rem; }
+.slide-example-es { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; color:white; margin-bottom:0.3rem; }
+.slide-example-en { font-size:0.82rem; color:rgba(255,255,255,0.7); margin-bottom:0.3rem; }
+.slide-example-note { font-size:0.72rem; color:var(--teal); font-weight:700; }
+.slide-rule-wrap { width:100%; padding:2rem; color:white; }
+.slide-rules { display:flex; flex-direction:column; gap:1rem; margin-top:1rem; }
+.slide-rule-row { display:flex; align-items:flex-start; gap:1rem; background:rgba(255,255,255,0.07); border-radius:12px; padding:1.1rem; }
+.slide-rule-icon { font-size:1.5rem; flex-shrink:0; }
+.slide-rule-title { font-size:0.95rem; font-weight:800; color:white; margin-bottom:0.25rem; }
+.slide-rule-desc { font-size:0.82rem; color:rgba(255,255,255,0.75); line-height:1.5; }
+.slide-thumb { width:28px; height:28px; border-radius:6px; background:rgba(0,0,0,0.06); border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:var(--muted); cursor:pointer; flex-shrink:0; transition:all 0.15s; }
+.slide-thumb.active { background:var(--teal); color:white; border-color:var(--teal); }
+.slide-thumb:hover:not(.active) { border-color:var(--teal); color:var(--teal); }
+
+/* THEORY */
+.theory-section { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; margin-bottom:1.2rem; }
+.theory-title { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.8rem; }
+.theory-body { font-size:0.88rem; color:var(--text-mid); line-height:1.7; margin-bottom:1rem; }
+.theory-table { width:100%; border-collapse:collapse; font-size:0.83rem; margin-top:0.5rem; }
+.theory-table th { background:var(--teal); color:white; padding:0.6rem 0.8rem; text-align:left; font-weight:700; }
+.theory-table td { padding:0.55rem 0.8rem; border-bottom:1px solid var(--border); color:var(--text-mid); }
+.theory-table tr:hover td { background:var(--teal-light); }
+.theory-examples { display:flex; flex-direction:column; gap:0.5rem; margin-top:0.8rem; }
+.theory-example { display:flex; gap:1.5rem; padding:0.6rem 0.8rem; background:var(--bg); border-radius:8px; font-size:0.85rem; }
+.theory-ex-es { font-weight:700; color:var(--text); min-width:200px; }
+.theory-ex-en { color:var(--muted); }
+
+/* FLASHCARDS */
+.flashcard { perspective:1000px; cursor:pointer; height:130px; }
+.flashcard-inner { position:relative; width:100%; height:100%; transition:transform 0.5s; transform-style:preserve-3d; }
+.flashcard.flipped .flashcard-inner { transform:rotateY(180deg); }
+.flashcard-front, .flashcard-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius-sm); padding:1.2rem; display:flex; flex-direction:column; justify-content:center; border:1.5px solid var(--border); }
+.flashcard-front { background:white; }
+.flashcard-back { background:var(--teal-light); border-color:rgba(59,191,191,0.3); transform:rotateY(180deg); }
+.flashcard-word { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; margin-bottom:0.3rem; }
+.flashcard-hint { font-size:0.7rem; color:var(--muted); }
+.flashcard-example { font-size:0.72rem; color:var(--teal-dark); margin-top:0.3rem; }
+
+/* QUIZ */
+.quiz-question { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.2rem; margin-bottom:1rem; }
+.quiz-q-text { font-size:0.92rem; font-weight:700; margin-bottom:0.9rem; display:flex; gap:0.7rem; align-items:flex-start; }
+.quiz-q-num { background:var(--teal); color:white; font-size:0.72rem; font-weight:800; padding:0.15rem 0.5rem; border-radius:999px; flex-shrink:0; margin-top:2px; }
+.quiz-options { display:flex; gap:0.6rem; flex-wrap:wrap; }
+.quiz-opt { background:var(--bg); border:1.5px solid var(--border); border-radius:8px; padding:0.5rem 1.1rem; font-family:'Nunito',sans-serif; font-size:0.88rem; font-weight:700; cursor:pointer; transition:all 0.15s; }
+.quiz-opt:hover:not(:disabled) { border-color:var(--teal); background:var(--teal-light); }
+.quiz-opt.correct { background:#e8f9e8; border-color:#4caf50; color:#2e7d32; }
+.quiz-opt.wrong { background:var(--coral-light); border-color:var(--coral); color:var(--coral); }
+.quiz-feedback { font-size:0.8rem; font-weight:700; padding:0.5rem 0.8rem; border-radius:8px; margin-top:0.7rem; }
+.fb-correct { background:#e8f9e8; color:#2e7d32; }
+.fb-wrong { background:var(--coral-light); color:var(--coral); }
+.quiz-result { background:var(--teal-light); border:1.5px solid rgba(59,191,191,0.3); border-radius:10px; padding:1rem 1.2rem; font-size:0.9rem; font-weight:700; color:var(--teal-dark); }
+
+/* LISTENING */
+.listening-card { background:white; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:1.5rem; margin-bottom:1.5rem; }
+.listening-title { font-family:'Fraunces',serif; font-size:1.1rem; font-weight:700; margin-bottom:0.4rem; }
+.listening-context { font-size:0.85rem; color:var(--text-mid); margin-bottom:1.2rem; line-height:1.6; }
+.listening-player { display:flex; align-items:center; gap:1rem; background:var(--bg); border-radius:12px; padding:1rem; margin-bottom:1rem; border:1.5px solid var(--border); }
+.listening-icon { font-size:1.8rem; }
+.listening-info { flex:1; }
+.listening-label { font-size:0.85rem; font-weight:700; }
+.listening-sub { font-size:0.72rem; color:var(--muted); }
+.listening-play { width:42px; height:42px; border-radius:50%; background:var(--teal); color:white; border:none; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.listening-transcript-toggle { font-size:0.8rem; font-weight:700; color:var(--teal-dark); cursor:pointer; margin-bottom:0.5rem; }
+.listening-transcript { background:var(--bg); border-radius:10px; padding:1rem; font-size:0.85rem; color:var(--text-mid); line-height:1.9; border:1px solid var(--border); }
+.listening-transcript p { margin-bottom:0.5rem; }
+/* TEACHER LESSON ROWS */
+.teacher-lesson-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.1rem; border:1.5px solid var(--border); border-radius:12px;
+  margin-bottom:0.8rem; gap:1rem; transition:all 0.2s; background:var(--bg);
+}
+.teacher-lesson-row:not(.tl-empty):hover { border-color:rgba(59,191,191,0.4); background:var(--teal-light); }
+.tl-left { display:flex; align-items:flex-start; gap:1rem; flex:1; min-width:0; }
+.tl-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.tl-info { flex:1; min-width:0; }
+.tl-title { font-size:0.92rem; font-weight:800; margin-bottom:0.2rem; }
+.tl-meta { font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem; }
+.tl-components { display:flex; flex-wrap:wrap; gap:0.3rem; }
+.tl-chip { font-size:0.68rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:999px; background:white; border:1.5px solid var(--border); color:var(--text-mid); }
+.tl-right { display:flex; flex-direction:column; align-items:flex-end; gap:0.7rem; flex-shrink:0; }
+.tl-open-btn { background:var(--teal); color:white; border:none; border-radius:8px; padding:0.5rem 1rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:800; cursor:pointer; transition:all 0.15s; white-space:nowrap; }
+.tl-open-btn:hover { background:var(--teal-dark); }
+.tl-toggle-wrap { display:flex; align-items:center; gap:0.5rem; }
+.tl-toggle-label { font-size:0.72rem; font-weight:700; color:var(--muted); white-space:nowrap; }
+.tl-toggle { width:40px; height:22px; border-radius:999px; background:var(--border); border:1px solid rgba(0,0,0,0.08); cursor:pointer; position:relative; transition:background 0.2s; flex-shrink:0; }
+.tl-toggle.active { background:var(--teal); }
+.tl-toggle-dot { position:absolute; top:3px; left:3px; width:16px; height:16px; border-radius:50%; background:white; box-shadow:0 1px 4px rgba(0,0,0,0.2); transition:transform 0.2s; }
+.tl-toggle.active .tl-toggle-dot { transform:translateX(18px); }
+</style>
+</html>
